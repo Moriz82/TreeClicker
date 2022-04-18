@@ -8,6 +8,6 @@
 import Foundation
 
 public class Shop{
-    let Axes = {1:Axe(Name: "Stone Axe", Damage: 20, Image: <#T##UIImage#>)}
+    let Axes:[Int:Axe] = {1:Axe(Name: "Stone Axe", Damage: 20, Image: <#T##UIImage#>)}
     
 }
