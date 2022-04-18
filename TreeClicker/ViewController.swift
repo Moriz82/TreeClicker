@@ -10,33 +10,42 @@ import UIKit
 class ViewController: UIViewController {
 
     let ticksPerSecond = 12;
-    let currTick = 0;
-    let currSecond = 0;
+    var money = 0;
+    var currTick = 0;
+    var currSecond = 0;
     var tickStorage : [String: Int] = [:]
-    var upgradeStorage : [String: [:]] = [:]
-    let timer = Timer();
+    var upgradeStorage : [String: Int] = [:]
+    var timer = Timer();
 
     override func viewDidLoad() {
         super.viewDidLoad();
         // Timer for updating based on defined tick rate
-        self.timer = Timer.scheduledTimer(withTimeInterval: (1 / ticksPerSecond), repeats: true, block: { _ in
-            Update();
-            currTick++;
-            currSecond = currTick / ticksPerSecond;
+        self.timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(0.12), repeats: true, block: { _ in
+            self.Update();
+            self.currTick += 1;
+            self.currSecond = self.currTick / self.ticksPerSecond;
         });
+        
+        //Initilize dicinarys
+        tickStorage["Chopper"] = currTick;
+        tickStorage["Lumberjack"] = currTick;
+        tickStorage["Chainsaw"] = currTick;
+        tickStorage["WoodChipper"] = currTick;
+        tickStorage["WoodMill"] = currTick;
+        tickStorage["WoodComplex"] = currTick;
     }
 
     func Update() { // Update method is ran every tick
 
         //Chopper
 
-        if (tickStorage["Chopper"] >= Chopper.wantedTicks()) {
-
+        if (currTick - tickStorage["Chopper"]! >= Chopper.wantedTicks) {
+            tickStorage["Chopper"] = currTick;
+            money += Chopper.moneyEarned;
         }
-
         //Luberjack
 
-        //Chainsaws
+        //Chainsaw
 
         //Wood Chipper
 
@@ -46,6 +55,9 @@ class ViewController: UIViewController {
 
         //Wood Complex
 
+        
+        //Update money label
+        
     }
 
 }
