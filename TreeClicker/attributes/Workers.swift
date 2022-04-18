@@ -8,44 +8,27 @@
 import Foundation
 import UIKit
 
-public class Chopper {
-    public static let wantedTicks = 24;
-    public static let moneyEarned = 10;
-    public static let cost = 100;
+
+public class Worker {
+    public let wantedTicks:Int;
+    public let moneyEarned:Int;
+    public let cost:Int;
+    public var lastTick:Double;
+    public var count:Double;
+
+    init (wantedTicks:Int, moneyEarned:Int, cost:Int, lastTick:Double, count:Double) {
+        self.wantedTicks = wantedTicks;
+        self.moneyEarned = moneyEarned;
+        self.cost = cost;
+        self.lastTick = lastTick;
+        self.count = count;
+    }
 }
 
-public class Luberjack {
-    public static let wantedTicks = 48;
-    public static let moneyEarned = 100;
-    public static let cost = 10000;
-}
+public class Workers {
+    public static var workers : [String : Worker] = [:];
 
-public class Chainsaw {
-    public static let wantedTicks = 24;
-    public static let moneyEarned = 10;
-    public static let cost = 10000;
-}
-
-public class WoodChipper {
-    public static let wantedTicks = 24;
-    public static let moneyEarned = 10;
-    public static let cost = 10000;
-}
-
-public class WoodMill {
-    public static let wantedTicks = 24;
-    public static let moneyEarned = 10;
-    public static let cost = 10000;
-}
-
-public class WoodFactory {
-    public static let wantedTicks = 24;
-    public static let moneyEarned = 10;
-    public static let cost = 10000;
-}
-
-public class WoodComplex {
-    public static let wantedTicks = 24;
-    public static let moneyEarned = 10;
-    public static let cost = 10000;
+    static func AddWorker(name:String, worker:Worker) {
+        workers[name] = worker;
+    }
 }

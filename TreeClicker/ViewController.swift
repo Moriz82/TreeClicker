@@ -9,77 +9,45 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let ticksPerSecond = 12;
-    var currTick = 0;
-    var currSecond = 0;
-    var tickStorage : [String: Int] = [:]
-    var upgradeStorage : [String: Int] = [:]
+    let ticksPerSecond:Int = 12;
+    var currTick:Double = 0;
+    var currSecond:Double = 0;
     var timer = Timer();
 
     override func viewDidLoad() {
         super.viewDidLoad();
-        // Timer for updating based on defined tick rate
+        // Create Workers
+        Workers.AddWorker("Chopper", new Worker(wantedTicks: 6, moneyEarned: 1, cost: 100, lastTick: 0, count: 0));
+        Workers.AddWorker("Lumberjack", new Worker(wantedTicks: 24, moneyEarned: 20, cost: 1000, lastTick: 0, count: 0));
+        Workers.AddWorker("Chainsaw", new Worker(wantedTicks: 48, moneyEarned: 300, cost: 3000, lastTick: 0, count: 0));
+        Workers.AddWorker("WoodChipper", new Worker(wantedTicks: 50, moneyEarned: 96, cost: 10000, lastTick: 0, count: 0));
+        Workers.AddWorker("WoodMill", new Worker(wantedTicks: 100, moneyEarned: 974, cost: 1000000, lastTick: 0, count: 0));
+        Workers.AddWorker("WoodFactory", new Worker(wantedTicks: 1000, moneyEarned: 40000, cost: 50000000, lastTick: 0, count: 0));
+        Workers.AddWorker("WoodComplex", new Worker(wantedTicks: 20, moneyEarned: 10000, cost: 9999999999999, lastTick: 0, count: 0));
+        // Create Axes
+
+		//Create Trees
+		
+		// Timer for updating based on defined tick rate
         self.timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(0.12), repeats: true, block: { _ in
             self.Update();
             self.currTick += 1;
             self.currSecond = self.currTick / self.ticksPerSecond;
         });
-        
-        //Initilize dicinarys
-        //tick storage
-        tickStorage["Chopper"] = currTick;
-        tickStorage["Lumberjack"] = currTick;
-        tickStorage["Chainsaw"] = currTick;
-        tickStorage["WoodChipper"] = currTick;
-        tickStorage["WoodMill"] = currTick;
-        tickStorage["WoodComplex"] = currTick;
-        //upgrade storage
-        upgradeStorage["Chopper"] = 1;
-        upgradeStorage["Lumberjack"] = 0;
-        upgradeStorage["Chainsaw"] = 0;
-        upgradeStorage["WoodChipper"] = 0;
-        upgradeStorage["WoodMill"] = 0;
-        upgradeStorage["WoodComplex"] = 0;
     }
 
     func Update() { // Update method is ran every tick
 
-        //Chopper
-        if (currTick - tickStorage["Chopper"]! >= Chopper.wantedTicks) {
-            tickStorage["Chopper"] = currTick;
-            User.money += Chopper.moneyEarned * upgradeStorage["Chopper"];
+        // Check and update all workers
+
+        for (name, worker) in Workers.workers {
+            if (currTick - worker.lastTick >= worker.wantedTicks) {
+                worker.lastTick = currTick;
+                User.money += worker.moneyEarned * worker.count;
+            }
         }
-        //Luberjack
-        if (currTick - tickStorage["Lumberjack"]! >= Lumberjack.wantedTicks) {
-            tickStorage["Lumberjack"] = currTick;
-            User.money += Lumberjack.moneyEarned * upgradeStorage["Lumberjack"];
-        }
-        //Chainsaw
-        if (currTick - tickStorage["Chainsaw"]! >= Chainsaw.wantedTicks) {
-            tickStorage["Chainsaw"] = currTick;
-            User.money += Chainsaw.moneyEarned * upgradeStorage["Chainsaw"];
-        }
-        //Wood Chipper
-        if (currTick - tickStorage["WoodChipper"]! >= WoodChipper.wantedTicks) {
-            tickStorage["WoodChipper"] = currTick;
-            User.money += WoodChipper.moneyEarned * upgradeStorage["WoodChipper"];
-        }
-        //Wood Mill
-        if (currTick - tickStorage["WoodMill"]! >= WoodMill.wantedTicks) {
-            tickStorage["WoodMill"] = currTick;
-            User.money += WoodMill.moneyEarned * upgradeStorage["WoodMill"];
-        }
-        //Wood Factory
-        if (currTick - tickStorage["WoodFactory"]! >= WoodFactory.wantedTicks) {
-            tickStorage["WoodFactory"] = currTick;
-            User.money += WoodFactory.moneyEarned * upgradeStorage["WoodFactory"];
-        }
-        //Wood Complex
-        if (currTick - tickStorage["WoodComplex"]! >= WoodComplex.wantedTicks) {
-            tickStorage["WoodComplex"] = currTick;
-            User.money += WoodComplex.moneyEarned * upgradeStorage["WoodComplex"];
-        }
-        //Update money label
+
+        // Update money label
         
     }
 
