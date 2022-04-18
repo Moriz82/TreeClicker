@@ -17,6 +17,9 @@
 		0380D644280736FD0056B0C4 /* TreeClickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380D643280736FD0056B0C4 /* TreeClickerTests.swift */; };
 		0380D64F280736FD0056B0C4 /* TreeClickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380D64E280736FD0056B0C4 /* TreeClickerUITests.swift */; };
 		499CF471280DC1B70027C86E /* Axe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CF470280DC1B70027C86E /* Axe.swift */; };
+		499CF473280DC5030027C86E /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CF472280DC5030027C86E /* Tree.swift */; };
+		499CF475280DC7E70027C86E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CF474280DC7E60027C86E /* User.swift */; };
+		499CF478280DCDB30027C86E /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CF477280DCDB30027C86E /* Shop.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		0380D64E280736FD0056B0C4 /* TreeClickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeClickerUITests.swift; sourceTree = "<group>"; };
 		0380D650280736FD0056B0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		499CF470280DC1B70027C86E /* Axe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axe.swift; sourceTree = "<group>"; };
+		499CF472280DC5030027C86E /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		499CF474280DC7E60027C86E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		499CF477280DCDB30027C86E /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 		0380D62B280736F50056B0C4 /* TreeClicker */ = {
 			isa = PBXGroup;
 			children = (
+				499CF476280DCD9F0027C86E /* front */,
 				499CF46F280DC17C0027C86E /* attributes */,
 				0380D62C280736F50056B0C4 /* AppDelegate.swift */,
 				0380D62E280736F50056B0C4 /* SceneDelegate.swift */,
@@ -140,6 +147,14 @@
 				034E501A280DC56C00860085 /* Workers.swift */,
 			);
 			path = attributes;
+			sourceTree = "<group>";
+		};
+		499CF476280DCD9F0027C86E /* front */ = {
+			isa = PBXGroup;
+			children = (
+				499CF477280DCDB30027C86E /* Shop.swift */,
+			);
+			path = front;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,8 +287,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				499CF473280DC5030027C86E /* Tree.swift in Sources */,
 				0380D631280736F50056B0C4 /* ViewController.swift in Sources */,
+				499CF475280DC7E70027C86E /* User.swift in Sources */,
 				0380D62D280736F50056B0C4 /* AppDelegate.swift in Sources */,
+				499CF478280DCDB30027C86E /* Shop.swift in Sources */,
 				499CF471280DC1B70027C86E /* Axe.swift in Sources */,
 				034E501B280DC56C00860085 /* Workers.swift in Sources */,
 				0380D62F280736F50056B0C4 /* SceneDelegate.swift in Sources */,

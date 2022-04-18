@@ -10,22 +10,22 @@ import UIKit
 
 class Axe{
     let Name:String
-    let Chops:Int
-    let Color:UIColor
+    let Damage:Int
+    let Image:UIImage
     
-    init(Name:String,Chops:Int,Color:UIColor){
+    init(Name:String,Damage:Int,Image:UIImage){
         self.Name=Name
-        self.Chops=Chops
-        self.Color=Color
+        self.Damage=Damage
+        self.Image=Image
     }
     
-    func get_name()->String{
+    func get_Name()->String{
         return Name
     }
-    func get_chops()->Int{
-        return Chops
+    func get_Damage()->Int{
+        return Damage
     }
-    func get_color()->UIColor{
-        return Color
+    func get_Image()->UIImage{
+        return Image
     }
 }
