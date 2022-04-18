@@ -10,7 +10,6 @@ import UIKit
 class ViewController: UIViewController {
 
     let ticksPerSecond = 12;
-    var money = 0;
     var currTick = 0;
     var currSecond = 0;
     var tickStorage : [String: Int] = [:]
@@ -38,24 +37,40 @@ class ViewController: UIViewController {
     func Update() { // Update method is ran every tick
 
         //Chopper
-
         if (currTick - tickStorage["Chopper"]! >= Chopper.wantedTicks) {
             tickStorage["Chopper"] = currTick;
-            money += Chopper.moneyEarned;
+            User.money += Chopper.moneyEarned;
         }
         //Luberjack
-
+        if (currTick - tickStorage["Lumberjack"]! >= Lumberjack.wantedTicks) {
+            tickStorage["Lumberjack"] = currTick;
+            User.money += Lumberjack.moneyEarned;
+        }
         //Chainsaw
-
+        if (currTick - tickStorage["Chainsaw"]! >= Chainsaw.wantedTicks) {
+            tickStorage["Chainsaw"] = currTick;
+            User.money += Chainsaw.moneyEarned;
+        }
         //Wood Chipper
-
+        if (currTick - tickStorage["WoodChipper"]! >= WoodChipper.wantedTicks) {
+            tickStorage["WoodChipper"] = currTick;
+            User.money += WoodChipper.moneyEarned;
+        }
         //Wood Mill
-
+        if (currTick - tickStorage["WoodMill"]! >= WoodMill.wantedTicks) {
+            tickStorage["WoodMill"] = currTick;
+            User.money += WoodMill.moneyEarned;
+        }
         //Wood Factory
-
+        if (currTick - tickStorage["WoodFactory"]! >= WoodFactory.wantedTicks) {
+            tickStorage["WoodFactory"] = currTick;
+            User.money += WoodFactory.moneyEarned;
+        }
         //Wood Complex
-
-        
+        if (currTick - tickStorage["WoodComplex"]! >= WoodComplex.wantedTicks) {
+            tickStorage["WoodComplex"] = currTick;
+            User.money += WoodComplex.moneyEarned;
+        }
         //Update money label
         
     }

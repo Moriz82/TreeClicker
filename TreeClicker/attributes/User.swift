@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 
-public class User{
-    static var Money:Int=0
-    static var curr_Axe:Axe = Axe(Name: "Wooden Axe", Damage: 10, Image: <#T##UIImage#>)
-    static var curr_Tree:Tree = Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: <#T##UIImage#>)
-
-    }
+public class User {
+    static var Money:Int = 0
+    static var curr_Axe:Axe = Axe(Name: "Wooden Axe", Damage: 10, Image: nil)
+    static var curr_Tree:Tree = Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: nil)
+}
