@@ -15,6 +15,7 @@
 		0380D639280736FD0056B0C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0380D637280736FD0056B0C4 /* LaunchScreen.storyboard */; };
 		0380D644280736FD0056B0C4 /* TreeClickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380D643280736FD0056B0C4 /* TreeClickerTests.swift */; };
 		0380D64F280736FD0056B0C4 /* TreeClickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380D64E280736FD0056B0C4 /* TreeClickerUITests.swift */; };
+		499CF471280DC1B70027C86E /* Axe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CF470280DC1B70027C86E /* Axe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		0380D64A280736FD0056B0C4 /* TreeClickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreeClickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0380D64E280736FD0056B0C4 /* TreeClickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeClickerUITests.swift; sourceTree = "<group>"; };
 		0380D650280736FD0056B0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		499CF470280DC1B70027C86E /* Axe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		0380D62B280736F50056B0C4 /* TreeClicker */ = {
 			isa = PBXGroup;
 			children = (
+				499CF46F280DC17C0027C86E /* attributes */,
 				0380D62C280736F50056B0C4 /* AppDelegate.swift */,
 				0380D62E280736F50056B0C4 /* SceneDelegate.swift */,
 				0380D630280736F50056B0C4 /* ViewController.swift */,
@@ -126,6 +129,14 @@
 				0380D650280736FD0056B0C4 /* Info.plist */,
 			);
 			path = TreeClickerUITests;
+			sourceTree = "<group>";
+		};
+		499CF46F280DC17C0027C86E /* attributes */ = {
+			isa = PBXGroup;
+			children = (
+				499CF470280DC1B70027C86E /* Axe.swift */,
+			);
+			path = attributes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +271,7 @@
 			files = (
 				0380D631280736F50056B0C4 /* ViewController.swift in Sources */,
 				0380D62D280736F50056B0C4 /* AppDelegate.swift in Sources */,
+				499CF471280DC1B70027C86E /* Axe.swift in Sources */,
 				0380D62F280736F50056B0C4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
