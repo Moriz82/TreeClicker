@@ -76,9 +76,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		034E5017280DC2CA00860085 /* New Group1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
 		0380D620280736F40056B0C4 = {
 			isa = PBXGroup;
 			children = (
+				034E5017280DC2CA00860085 /* New Group1 */,
 				0380D62B280736F50056B0C4 /* TreeClicker */,
 				0380D642280736FD0056B0C4 /* TreeClickerTests */,
 				0380D64D280736FD0056B0C4 /* TreeClickerUITests */,
