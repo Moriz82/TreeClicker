@@ -6,8 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
-public class Shop{
-    let Axes:[Int:Axe] = [:]
-    
+public class Shop {
+    // Add Axes To Shop
+    for (level, axe) in Axes.axes {
+
+    }
+    // Add Workers to Shop 
+    for (name, worker) in Workers.workers {
+        
+    }
 }

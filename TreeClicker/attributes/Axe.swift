@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Axe{
+public class Axe {
     let Name:String
     let Damage:Int
     let Image:UIImage
@@ -27,5 +27,35 @@ class Axe{
     }
     func get_Image()->UIImage{
         return Image
+    }
+}
+
+public class Axes {
+    public static var axes : [Int : Axe] = [:];
+    private static let filename:String = "axesdata";
+
+    static func addAxe(level:Int, axe:Axe) {
+        axes[level] = axe;
+    }
+
+    static func saveAxes() {
+        JSONSerialization.save(jsonObject: axes, filename: filename);
+    }
+
+    static func loadAxes() {
+        axes = JSONSerialization.loadJSON(filename: filename);
+    }
+
+    static func dataExists() -> Bool {
+        let fm = FileManager.default;
+        let urls = fm.urls(for: .documentDirectory, in: .userDomainMask);
+        let url = urls.first;
+        var fileURL = url.appendingPathComponent(filename);
+        fileURL = fileURL.appendingPathExtension("json");
+
+        if fm.fileExists(atPath: fileURL) {
+            return true;
+        }
+        return false;
     }
 }

@@ -27,8 +27,30 @@ public class Worker {
 
 public class Workers {
     public static var workers : [String : Worker] = [:];
+    private static let filename:String = "workersdata";
 
     static func AddWorker(name:String, worker:Worker) {
         workers[name] = worker;
+    }
+
+    static func saveWorkers() {
+        JSONSerialization.save(jsonObject: workers, filename: filename);
+    }
+
+    static func loadWorkers() {
+        workers = JSONSerialization.loadJSON(filename: filename);
+    }
+
+    static func dataExists() -> Bool {
+        let fm = FileManager.default;
+        let urls = fm.urls(for: .documentDirectory, in: .userDomainMask);
+        let url = urls.first;
+        var fileURL = url.appendingPathComponent(filename);
+        fileURL = fileURL.appendingPathExtension("json");
+
+        if fm.fileExists(atPath: fileURL) {
+            return true;
+        }
+        return false;
     }
 }
