@@ -13,12 +13,14 @@ public class Tree {
     var Health:Int
     let Worth:Int
     let Image:UIImage
+    let Level:Int
     
-    init(Name:String, Health:Int, Worth:Int, Image:UIImage){
+    init(Name:String, Health:Int, Worth:Int, Image:UIImage,Level:Int){
         self.Name=Name
         self.Health=Health
         self.Worth=Worth
         self.Image=Image
+        self.Level=Level
     }
     func get_Name() -> String {
         return Name;
@@ -44,30 +46,5 @@ public class Trees {
 
     static func AddTree(level:Int, tree:Tree) {
         trees[level] = tree;
-    }
-
-    static func saveTrees() {
-        do{
-            try JSONSerialization.save(jsonObject: trees, toFilename: filename);
-        }catch{}
-    }
-
-    static func loadTrees() {
-        do {
-            try trees = JSONSerialization.loadJSON(withFilename: filename) as! [Int : Tree];
-        }catch{}
-    }
-
-    static func dataExists() -> Bool {
-        let fm = FileManager.default;
-        let urls = fm.urls(for: .documentDirectory, in: .userDomainMask);
-        let url = urls.first;
-        let fileURL = url!.appendingPathComponent(filename);
-        let fileUrl:String = fileURL.appendingPathExtension("json").absoluteString;
-
-        if fm.fileExists(atPath: fileUrl) {
-            return true;
-        }
-        return false;
     }
 }

@@ -12,12 +12,15 @@ public class Axe {
     let Name:String
     let Damage:Int
     let Image:UIImage
+    let Level:Int
     
-    init(Name:String,Damage:Int,Image:UIImage){
+    init(Name:String,Damage:Int,Image:UIImage,Level:Int){
         self.Name=Name
         self.Damage=Damage
         self.Image=Image
+        self.Level=Level
     }
+    
     
     func get_Name()->String{
         return Name
@@ -36,30 +39,5 @@ public class Axes {
 
     static func addAxe(level:Int, axe:Axe) {
         axes[level] = axe;
-    }
-
-    static func saveAxes() {
-        do{
-            try JSONSerialization.save(jsonObject: axes, toFilename: filename);
-        }catch{}
-    }
-
-    static func loadAxes() {
-        do{
-            try axes = JSONSerialization.loadJSON(withFilename: filename) as! [Int : Axe];
-        }catch{}
-    }
-
-    static func dataExists() -> Bool {
-        let fm = FileManager.default;
-        let urls = fm.urls(for: .documentDirectory, in: .userDomainMask);
-        let url = urls.first;
-        let fileURL = url!.appendingPathComponent(filename);
-        let fileUrl:String = fileURL.appendingPathExtension("json").absoluteString;
-
-        if fm.fileExists(atPath: fileUrl) {
-            return true;
-        }
-        return false;
     }
 }

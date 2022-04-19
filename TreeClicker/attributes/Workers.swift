@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-public class Worker {
+public class Worker : Codable {
     public let wantedTicks:Double;
     public let moneyEarned:Double;
     public let cost:Int;
@@ -31,30 +31,5 @@ public class Workers {
 
     static func AddWorker(name:String, worker:Worker) {
         workers[name] = worker;
-    }
-
-    static func saveWorkers() {
-        do{
-            try JSONSerialization.save(jsonObject: workers, toFilename: filename);
-        }catch{}
-    }
-
-    static func loadWorkers() {
-        do{
-            try workers = JSONSerialization.loadJSON(withFilename: filename) as! [String : Worker];
-        }catch{}
-    }
-
-    static func dataExists() -> Bool {
-        let fm = FileManager.default;
-        let urls = fm.urls(for: .documentDirectory, in: .userDomainMask);
-        let url = urls.first;
-        let fileURL = url!.appendingPathComponent(filename);
-        let fileUrl:String = fileURL.appendingPathExtension("json").absoluteString;
-
-        if fm.fileExists(atPath: fileUrl) {
-            return true;
-        }
-        return false;
     }
 }

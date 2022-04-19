@@ -17,26 +17,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         // Create Workers
-        if (!Workers.dataExists()) {
-            Workers.AddWorker(name: "Chopper", worker: Worker(wantedTicks: 6, moneyEarned: 1, cost: 100, lastTick: 0, count: 0));
-            Workers.AddWorker(name: "Lumberjack", worker: Worker(wantedTicks: 24, moneyEarned: 20, cost: 1000, lastTick: 0, count: 0));
-            Workers.AddWorker(name: "Chainsaw", worker: Worker(wantedTicks: 2, moneyEarned: 5, cost: 3000, lastTick: 0, count: 0));
-            Workers.AddWorker(name: "WoodChipper", worker: Worker(wantedTicks: 50, moneyEarned: 96, cost: 10000, lastTick: 0, count: 0));
-            Workers.AddWorker(name: "WoodMill", worker: Worker(wantedTicks: 100, moneyEarned: 974, cost: 1000000, lastTick: 0, count: 0));
-            Workers.AddWorker(name: "WoodFactory", worker: Worker(wantedTicks: 1000, moneyEarned: 40000, cost: 50000000, lastTick: 0, count: 0));
-            Workers.AddWorker(name: "WoodComplex", worker: Worker(wantedTicks: 20, moneyEarned: 10000, cost: 9999999999999, lastTick: 0, count: 0));
-            Workers.saveWorkers();
-        }
+        Workers.AddWorker(name: "Chopper", worker: Worker(wantedTicks: 6, moneyEarned: 1, cost: 100, lastTick: 0, count: 0));
+        Workers.AddWorker(name: "Lumberjack", worker: Worker(wantedTicks: 24, moneyEarned: 20, cost: 1000, lastTick: 0, count: 0));
+        Workers.AddWorker(name: "Chainsaw", worker: Worker(wantedTicks: 2, moneyEarned: 5, cost: 3000, lastTick: 0, count: 0));
+        Workers.AddWorker(name: "WoodChipper", worker: Worker(wantedTicks: 50, moneyEarned: 96, cost: 10000, lastTick: 0, count: 0));
+        Workers.AddWorker(name: "WoodMill", worker: Worker(wantedTicks: 100, moneyEarned: 974, cost: 1000000, lastTick: 0, count: 0));
+        Workers.AddWorker(name: "WoodFactory", worker: Worker(wantedTicks: 1000, moneyEarned: 40000, cost: 50000000, lastTick: 0, count: 0));
+        Workers.AddWorker(name: "WoodComplex", worker: Worker(wantedTicks: 20, moneyEarned: 10000, cost: 9999999999999, lastTick: 0, count: 0));
         // Create Axes
-        if (!Axes.dataExists()) {
-            Axes.addAxe(level: 0, axe: Axe(Name: "Wooden Axe", Damage: 10, Image: UIImage()));
-            Axes.saveAxes();
-        }
+        Axes.addAxe(level: 0, axe: Axe(Name: "Wooden Axe", Damage: 10, Image: UIImage(), Level: 0));
         // Create Trees
-        if (!Trees.dataExists()) {
-            Trees.AddTree(level: 0, tree: Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: UIImage()));
-            Trees.saveTrees();
-        }
+        Trees.AddTree(level: 0, tree: Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: UIImage(), Level: 0));
         // Create User
         if (!User.dataExists()) {
             User.Money = 0;
@@ -44,12 +35,6 @@ class ViewController: UIViewController {
             User.currTree = Trees.trees[0]!;
             User.saveUser();
         }
-        // Load Workers
-        Workers.loadWorkers();
-        // Load Axes
-        Axes.loadAxes();
-        // Load Trees
-        Trees.loadTrees();
         // Load User
         User.loadUser();
         // Timer for updating based on defined tick rate
@@ -64,7 +49,7 @@ class ViewController: UIViewController {
 
         // Check and update all workers
 
-        for (name, worker) in Workers.workers {
+        for (_, worker) in Workers.workers {
             if (currTick - worker.lastTick >= worker.wantedTicks) {
                 worker.lastTick = currTick;
                 User.Money += worker.moneyEarned * worker.count;
