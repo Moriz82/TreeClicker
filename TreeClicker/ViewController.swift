@@ -32,8 +32,8 @@ class ViewController: UIViewController {
             Axes.addAxe(level: 0, axe: Axe(Name: "Wooden Axe", Damage: 10, Image: UIImage()));
             Axes.saveAxes();
         }
-		// Create Trees
-		if (!Trees.dataExists()) {
+        // Create Trees
+        if (!Trees.dataExists()) {
             Trees.AddTree(level: 0, tree: Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: UIImage()));
             Trees.saveTrees();
         }
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         Trees.loadTrees();
         // Load User
         User.loadUser();
-		// Timer for updating based on defined tick rate
+        // Timer for updating based on defined tick rate
         self.timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(0.12), repeats: true, block: { _ in
             self.Update();
             self.currTick += 1;

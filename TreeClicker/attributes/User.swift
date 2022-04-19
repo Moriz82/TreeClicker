@@ -17,7 +17,7 @@ public class User {
 
     static func saveUser() {
         do{
-            try JSONSerialization.save(jsonObject: UserData(money:Money, currAxe: currAxe, currTree: currTree), toFilename: filename);
+            try JSONSerialization.save(jsonObject: UserData(money:Int(Money), currAxe: currAxe, currTree: currTree), toFilename: filename);
         }catch{}
     }
 
@@ -46,12 +46,12 @@ public class User {
 }
 
 public class UserData {
-    var Money:Int = 0;
+    var Money:Double = 0;
     var currAxe:Axe = Axes.axes[0]!
     var currTree:Tree = Trees.trees[0]!;
     
     init(money:Int, currAxe:Axe, currTree:Tree){
-        self.Money = money;
+        self.Money = Double(money);
         self.currAxe = currAxe;
         self.currTree = currTree;
     }
