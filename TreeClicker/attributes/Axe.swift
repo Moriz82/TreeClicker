@@ -39,21 +39,25 @@ public class Axes {
     }
 
     static func saveAxes() {
-        JSONSerialization.save(jsonObject: axes, filename: filename);
+        do{
+            try JSONSerialization.save(jsonObject: axes, toFilename: filename);
+        }catch{}
     }
 
     static func loadAxes() {
-        axes = JSONSerialization.loadJSON(filename: filename);
+        do{
+            try axes = JSONSerialization.loadJSON(withFilename: filename) as! [Int : Axe];
+        }catch{}
     }
 
     static func dataExists() -> Bool {
         let fm = FileManager.default;
         let urls = fm.urls(for: .documentDirectory, in: .userDomainMask);
         let url = urls.first;
-        var fileURL = url.appendingPathComponent(filename);
-        fileURL = fileURL.appendingPathExtension("json");
+        let fileURL = url!.appendingPathComponent(filename);
+        let fileUrl:String = fileURL.appendingPathExtension("json").absoluteString;
 
-        if fm.fileExists(atPath: fileURL) {
+        if fm.fileExists(atPath: fileUrl) {
             return true;
         }
         return false;

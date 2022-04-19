@@ -10,13 +10,13 @@ import UIKit
 
 
 public class Worker {
-    public let wantedTicks:Int;
-    public let moneyEarned:Int;
+    public let wantedTicks:Double;
+    public let moneyEarned:Double;
     public let cost:Int;
     public var lastTick:Double;
     public var count:Double;
 
-    init (wantedTicks:Int, moneyEarned:Int, cost:Int, lastTick:Double, count:Double) {
+    init (wantedTicks:Double, moneyEarned:Double, cost:Int, lastTick:Double, count:Double) {
         self.wantedTicks = wantedTicks;
         self.moneyEarned = moneyEarned;
         self.cost = cost;
@@ -34,21 +34,25 @@ public class Workers {
     }
 
     static func saveWorkers() {
-        JSONSerialization.save(jsonObject: workers, filename: filename);
+        do{
+            try JSONSerialization.save(jsonObject: workers, toFilename: filename);
+        }catch{}
     }
 
     static func loadWorkers() {
-        workers = JSONSerialization.loadJSON(filename: filename);
+        do{
+            try workers = JSONSerialization.loadJSON(withFilename: filename) as! [String : Worker];
+        }catch{}
     }
 
     static func dataExists() -> Bool {
         let fm = FileManager.default;
         let urls = fm.urls(for: .documentDirectory, in: .userDomainMask);
         let url = urls.first;
-        var fileURL = url.appendingPathComponent(filename);
-        fileURL = fileURL.appendingPathExtension("json");
+        let fileURL = url!.appendingPathComponent(filename);
+        let fileUrl:String = fileURL.appendingPathExtension("json").absoluteString;
 
-        if fm.fileExists(atPath: fileURL) {
+        if fm.fileExists(atPath: fileUrl) {
             return true;
         }
         return false;

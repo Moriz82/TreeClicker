@@ -9,33 +9,50 @@ import Foundation
 import UIKit
 
 public class User {
-    static var Money:Int;
-    static var currAxe:Axe;
-    static var currTree:Tree;
+    static var Money:Double = 0;
+    static var currAxe:Axe = Axes.axes[0]!
+    static var currTree:Tree = Trees.trees[0]!;
     
     private static let filename:String = "userdata";
 
     static func saveUser() {
-        JSONSerialization.save(jsonObject: self, filename: filename);
+        do{
+            try JSONSerialization.save(jsonObject: UserData(money:Money, currAxe: currAxe, currTree: currTree), toFilename: filename);
+        }catch{}
     }
 
     static func loadUser() {
-        var userdata = JSONSerialization.loadJSON(filename: filename);
-        self.Money = Money;
-        self.currAxe = currAxe;
-        self.currTree = currTree;
+        do{
+            let userdata:UserData = try JSONSerialization.loadJSON(withFilename: filename) as! UserData;
+        Money = userdata.Money;
+            currAxe = userdata.currAxe;
+            currTree = userdata.currTree;
+        }
+        catch{}
     }
 
     static func dataExists() -> Bool {
         let fm = FileManager.default;
         let urls = fm.urls(for: .documentDirectory, in: .userDomainMask);
         let url = urls.first;
-        var fileURL = url.appendingPathComponent(filename);
-        fileURL = fileURL.appendingPathExtension("json");
+        let fileURL = url!.appendingPathComponent(filename);
+        let fileUrl:String = fileURL.appendingPathExtension("json").absoluteString;
 
-        if fm.fileExists(atPath: fileURL) {
+        if fm.fileExists(atPath: fileUrl) {
             return true;
         }
         return false;
+    }
+}
+
+public class UserData {
+    var Money:Int = 0;
+    var currAxe:Axe = Axes.axes[0]!
+    var currTree:Tree = Trees.trees[0]!;
+    
+    init(money:Int, currAxe:Axe, currTree:Tree){
+        self.Money = money;
+        self.currAxe = currAxe;
+        self.currTree = currTree;
     }
 }

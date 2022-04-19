@@ -42,7 +42,7 @@ public class Trees {
     public static var trees : [Int : Tree] = [:];
     private static let filename:String = "treesdata";
 
-    static func AddWorker(level:Int, tree:Tree) {
+    static func AddTree(level:Int, tree:Tree) {
         trees[level] = tree;
     }
 
@@ -54,7 +54,7 @@ public class Trees {
 
     static func loadTrees() {
         do {
-           try trees = JSONSerialization.loadJSON(toFilename: filename);
+            try trees = JSONSerialization.loadJSON(withFilename: filename) as! [Int : Tree];
         }catch{}
     }
 
@@ -62,10 +62,10 @@ public class Trees {
         let fm = FileManager.default;
         let urls = fm.urls(for: .documentDirectory, in: .userDomainMask);
         let url = urls.first;
-        var fileURL = url.appendingPathComponent(filename);
-        fileURL = fileURL.appendingPathExtension("json");
+        let fileURL = url!.appendingPathComponent(filename);
+        let fileUrl:String = fileURL.appendingPathExtension("json").absoluteString;
 
-        if fm.fileExists(atPath: fileURL) {
+        if fm.fileExists(atPath: fileUrl) {
             return true;
         }
         return false;
