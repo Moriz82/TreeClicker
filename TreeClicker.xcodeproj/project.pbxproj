@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		034E501B280DC56C00860085 /* Workers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E501A280DC56C00860085 /* Workers.swift */; };
 		034E501F280DD02100860085 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E501E280DD02100860085 /* User.swift */; };
+		034E5021280F090E00860085 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E5020280F090E00860085 /* Tree.swift */; };
+		034E5023280F096800860085 /* JsonSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E5022280F096800860085 /* JsonSerialization.swift */; };
 		0380D62D280736F50056B0C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380D62C280736F50056B0C4 /* AppDelegate.swift */; };
 		0380D62F280736F50056B0C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380D62E280736F50056B0C4 /* SceneDelegate.swift */; };
 		0380D631280736F50056B0C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380D630280736F50056B0C4 /* ViewController.swift */; };
@@ -43,6 +45,8 @@
 /* Begin PBXFileReference section */
 		034E501A280DC56C00860085 /* Workers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workers.swift; sourceTree = "<group>"; };
 		034E501E280DD02100860085 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		034E5020280F090E00860085 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		034E5022280F096800860085 /* JsonSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonSerialization.swift; sourceTree = "<group>"; };
 		0380D629280736F50056B0C4 /* TreeClicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreeClicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0380D62C280736F50056B0C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0380D62E280736F50056B0C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,9 +159,11 @@
 		499CF46F280DC17C0027C86E /* attributes */ = {
 			isa = PBXGroup;
 			children = (
+				034E5020280F090E00860085 /* Tree.swift */,
 				034E501E280DD02100860085 /* User.swift */,
 				499CF470280DC1B70027C86E /* Axe.swift */,
 				034E501A280DC56C00860085 /* Workers.swift */,
+				034E5022280F096800860085 /* JsonSerialization.swift */,
 			);
 			path = attributes;
 			sourceTree = "<group>";
@@ -301,10 +307,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				499CF473280DC5030027C86E /* Tree.swift in Sources */,
+				034E5023280F096800860085 /* JsonSerialization.swift in Sources */,
 				0380D631280736F50056B0C4 /* ViewController.swift in Sources */,
 				499CF475280DC7E70027C86E /* User.swift in Sources */,
 				0380D62D280736F50056B0C4 /* AppDelegate.swift in Sources */,
 				499CF478280DCDB30027C86E /* Shop.swift in Sources */,
+				034E5021280F090E00860085 /* Tree.swift in Sources */,
 				034E501F280DD02100860085 /* User.swift in Sources */,
 				499CF471280DC1B70027C86E /* Axe.swift in Sources */,
 				034E501B280DC56C00860085 /* Workers.swift in Sources */,

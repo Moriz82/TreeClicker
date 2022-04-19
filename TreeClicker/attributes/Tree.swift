@@ -47,11 +47,15 @@ public class Trees {
     }
 
     static func saveTrees() {
-        JSONSerialization.save(jsonObject: trees, filename: filename);
+        do{
+            try JSONSerialization.save(jsonObject: trees, toFilename: filename);
+        }catch{}
     }
 
     static func loadTrees() {
-        trees = JSONSerialization.loadJSON(filename: filename);
+        do {
+           try trees = JSONSerialization.loadJSON(toFilename: filename);
+        }catch{}
     }
 
     static func dataExists() -> Bool {

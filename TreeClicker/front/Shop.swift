@@ -9,12 +9,14 @@ import Foundation
 import UIKit
 
 public class Shop {
-    // Add Axes To Shop
-    for (level, axe) in Axes.axes {
+    func addStuff(){
+        // Add Axes To Shop
+        for (level, axe) in Axes.axes {
 
-    }
-    // Add Workers to Shop 
-    for (name, worker) in Workers.workers {
-        
+        }
+        // Add Workers to Shop
+        for (name, worker) in Workers.workers {
+            
+        }
     }
 }
