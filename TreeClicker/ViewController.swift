@@ -28,15 +28,8 @@ class ViewController: UIViewController {
         Axes.addAxe(level: 0, axe: Axe(Name: "Wooden Axe", Damage: 10, Image: UIImage(), Level: 0));
         // Create Trees
         Trees.AddTree(level: 0, tree: Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: UIImage(), Level: 0));
-        // Create User
-        if (!User.dataExists()) {
-            User.Money = 0;
-            User.currAxe = Axes.axes[0]!;
-            User.currTree = Trees.trees[0]!;
-            User.saveUser();
-        }
-        // Load User
-        User.loadUser();
+        // Load Data
+        DataSavingManager.loadData();
         // Timer for updating based on defined tick rate
         self.timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(0.12), repeats: true, block: { _ in
             self.Update();

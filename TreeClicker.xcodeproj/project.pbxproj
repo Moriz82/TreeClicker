@@ -15,11 +15,11 @@
 		031F2C57280F163F00118779 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031F2C55280F163F00118779 /* LaunchScreen.storyboard */; };
 		031F2C62280F163F00118779 /* TreeClickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C61280F163F00118779 /* TreeClickerTests.swift */; };
 		031F2C6D280F163F00118779 /* TreeClickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C6C280F163F00118779 /* TreeClickerUITests.swift */; };
-		031F2C82280F170900118779 /* JsonSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C7D280F170900118779 /* JsonSerialization.swift */; };
 		031F2C83280F170900118779 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C7E280F170900118779 /* User.swift */; };
 		031F2C84280F170900118779 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C7F280F170900118779 /* Tree.swift */; };
 		031F2C85280F170900118779 /* Axe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C80280F170900118779 /* Axe.swift */; };
 		031F2C86280F170900118779 /* Workers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C81280F170900118779 /* Workers.swift */; };
+		031F2C88280F22BB00118779 /* DataSavingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C87280F22BB00118779 /* DataSavingManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,11 +54,11 @@
 		031F2C68280F163F00118779 /* TreeClickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreeClickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		031F2C6C280F163F00118779 /* TreeClickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeClickerUITests.swift; sourceTree = "<group>"; };
 		031F2C6E280F163F00118779 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		031F2C7D280F170900118779 /* JsonSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSerialization.swift; sourceTree = "<group>"; };
 		031F2C7E280F170900118779 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		031F2C7F280F170900118779 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		031F2C80280F170900118779 /* Axe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Axe.swift; sourceTree = "<group>"; };
 		031F2C81280F170900118779 /* Workers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workers.swift; sourceTree = "<group>"; };
+		031F2C87280F22BB00118779 /* DataSavingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSavingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +143,10 @@
 			isa = PBXGroup;
 			children = (
 				031F2C80280F170900118779 /* Axe.swift */,
-				031F2C7D280F170900118779 /* JsonSerialization.swift */,
 				031F2C7F280F170900118779 /* Tree.swift */,
 				031F2C7E280F170900118779 /* User.swift */,
 				031F2C81280F170900118779 /* Workers.swift */,
+				031F2C87280F22BB00118779 /* DataSavingManager.swift */,
 			);
 			path = attributes;
 			sourceTree = "<group>";
@@ -284,11 +284,11 @@
 				031F2C4F280F163E00118779 /* ViewController.swift in Sources */,
 				031F2C85280F170900118779 /* Axe.swift in Sources */,
 				031F2C4B280F163E00118779 /* AppDelegate.swift in Sources */,
-				031F2C82280F170900118779 /* JsonSerialization.swift in Sources */,
 				031F2C84280F170900118779 /* Tree.swift in Sources */,
 				031F2C86280F170900118779 /* Workers.swift in Sources */,
 				031F2C83280F170900118779 /* User.swift in Sources */,
 				031F2C4D280F163E00118779 /* SceneDelegate.swift in Sources */,
+				031F2C88280F22BB00118779 /* DataSavingManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
