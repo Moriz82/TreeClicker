@@ -17,6 +17,7 @@ class DataSavingManager {
         for (name, amount) in workerDic {
             stringToSave += "\(name):\(amount)#"
         }
+        String(stringToSave.dropLast())  
         
         let path = FileManager.default.urls(for: .documentDirectory,
                                             in: .userDomainMask)[0].appendingPathComponent("data")
@@ -26,6 +27,9 @@ class DataSavingManager {
         }
     }
     public static func loadData() {
+
+        if (!dataExists()) {return;}
+
         let path = FileManager.default.urls(for: .documentDirectory,
                                             in: .userDomainMask)[0].appendingPathComponent("data")
         do{
@@ -47,5 +51,17 @@ class DataSavingManager {
                 i+=1;
             }
         }catch{}
+    }
+
+    private static func dataExists() -> Bool {
+        let fm = FileManager.default;
+        let urls = fm.urls(for: .documentDirectory, in: .userDomainMask);
+        let url = urls.first;
+        let fileURL:String = url!.appendingPathComponent("data").absoluteString;
+
+        if fm.fileExists(atPath: fileURL) {
+            return true;
+        }
+        return false;
     }
 }

@@ -28,6 +28,9 @@ class ViewController: UIViewController {
         Axes.addAxe(level: 0, axe: Axe(Name: "Wooden Axe", Damage: 10, Image: UIImage(), Level: 0));
         // Create Trees
         Trees.AddTree(level: 0, tree: Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: UIImage(), Level: 0));
+        // Update User
+        User.currAxe = Axes.axes[0]!;
+        User.currTree = Trees.trees[0]!;
         // Load Data
         DataSavingManager.loadData();
         // Timer for updating based on defined tick rate

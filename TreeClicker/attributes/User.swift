@@ -10,8 +10,8 @@ import UIKit
 
 public class User {
     static var Money:Double = 0;
-    static var currAxe:Axe = Axes.axes[0]!
-    static var currTree:Tree = Trees.trees[0]!;
+    static var currAxe:Axe = nil
+    static var currTree:Tree = nil
     
     private static let filename:String = "userdata";
 
