@@ -10,26 +10,10 @@ import UIKit
 
 public class User {
     static var Money:Double = 0;
-    static var currAxe:Axe = nil
-    static var currTree:Tree = nil
+    static var currAxe:Axe = Axe(Name: "Dirt Axe", Damage: 10, Image: UIImage(), Level: 0)
+    static var currTree:Tree = Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: UIImage(), Level: 0)
     
     private static let filename:String = "userdata";
-
-    static func saveUser() {
-        do{
-            try JSONSerialization.save(jsonObject: UserData(money:Int(Money), currAxeLevel: currAxe.Level, currTreeLevel: currTree.Level), toFilename: filename);
-        }catch{}
-    }
-
-    static func loadUser() {
-        do{
-            let userdata:UserData = try JSONSerialization.loadJSON(withFilename: filename) as! UserData;
-            Money = Double(userdata.Money);
-            currAxe = Axes.axes[userdata.currAxeLevel]!;
-            currTree = Trees.trees[userdata.currTreeLevel]!;
-        }
-        catch{}
-    }
 
     static func dataExists() -> Bool {
         let fm = FileManager.default;

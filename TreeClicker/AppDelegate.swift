@@ -31,8 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-    func applicationWillTerminate(application: UIApplication) {
-        DataSavingManager.saveData();
+    func applicationWillTerminate(_ application: UIApplication) {
+        var workersDic:[String:Int] = [:];
+        for (name, worker) in Workers.workers {
+            workersDic[name] = Int(worker.count);
+        }
+        DataSavingManager.saveData(money:User.Money, axeLevel: User.currAxe.Level, treeLevel: User.currTree.Level, workerDic:workersDic);
     }
 
 

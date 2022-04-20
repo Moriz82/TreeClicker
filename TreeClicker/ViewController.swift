@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         self.timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(100), repeats: true, block: { _ in
             var workersDic:[String:Int] = [:];
             for (name, worker) in Workers.workers {
-                workersDic[name] = worker.count;
+                workersDic[name] = Int(worker.count);
             }
             DataSavingManager.saveData(money: User.Money, axeLevel: User.currAxe.Level, treeLevel: User.currTree.Level, workerDic: workersDic);
         });

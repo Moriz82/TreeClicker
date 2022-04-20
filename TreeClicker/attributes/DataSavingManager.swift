@@ -17,7 +17,7 @@ class DataSavingManager {
         for (name, amount) in workerDic {
             stringToSave += "\(name):\(amount)#"
         }
-        String(stringToSave.dropLast())  
+        stringToSave = String(stringToSave.dropLast())
         
         let path = FileManager.default.urls(for: .documentDirectory,
                                             in: .userDomainMask)[0].appendingPathComponent("data")
