@@ -21,6 +21,7 @@
 		031F2C86280F170900118779 /* Workers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C81280F170900118779 /* Workers.swift */; };
 		031F2C88280F22BB00118779 /* DataSavingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C87280F22BB00118779 /* DataSavingManager.swift */; };
 		031F2C8A28108B0C00118779 /* ItemInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C8928108B0C00118779 /* ItemInit.swift */; };
+		49C5ED512811C6090093C1E1 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5ED502811C6090093C1E1 /* ShopViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		031F2C81280F170900118779 /* Workers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workers.swift; sourceTree = "<group>"; };
 		031F2C87280F22BB00118779 /* DataSavingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSavingManager.swift; sourceTree = "<group>"; };
 		031F2C8928108B0C00118779 /* ItemInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInit.swift; sourceTree = "<group>"; };
+		49C5ED502811C6090093C1E1 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				031F2C53280F163F00118779 /* Assets.xcassets */,
 				031F2C55280F163F00118779 /* LaunchScreen.storyboard */,
 				031F2C58280F163F00118779 /* Info.plist */,
+				49C5ED502811C6090093C1E1 /* ShopViewController.swift */,
 			);
 			path = TreeClicker;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			files = (
 				031F2C4F280F163E00118779 /* ViewController.swift in Sources */,
 				031F2C8A28108B0C00118779 /* ItemInit.swift in Sources */,
+				49C5ED512811C6090093C1E1 /* ShopViewController.swift in Sources */,
 				031F2C85280F170900118779 /* Axe.swift in Sources */,
 				031F2C4B280F163E00118779 /* AppDelegate.swift in Sources */,
 				031F2C84280F170900118779 /* Tree.swift in Sources */,
