@@ -7,62 +7,46 @@
 
 import Foundation
 
+struct DataKeys {
+    static let moneyKey:String = "";
+    static let axeLevelKey:String = "";
+    static let treeLevelKey:String = "";
+    static let workerDicKey:String = "";
+}
+
 class DataSavingManager {
     public static func saveData(money:Double, axeLevel:Int, treeLevel:Int, workerDic:[String:Int]) {
-        print("save")
-        var stringToSave:String = ""
         
-        stringToSave += "\(money)~"
-        stringToSave += "\(axeLevel)~"
-        stringToSave += "\(treeLevel)~"
+        let defaults = UserDefaults.standard;
+        defaults.set(money, forKey: DataKeys.moneyKey);
+        defaults.set(axeLevel, forKey: DataKeys.axeLevelKey);
+        defaults.set(treeLevel, forKey: DataKeys.treeLevelKey);
+        
+        var workerString:String = "";
+        
         for (name, amount) in workerDic {
-            stringToSave += "\(name):\(amount)#"
+            workerString += "\(name):\(amount)~";
         }
-        stringToSave = String(stringToSave.dropLast())
+        workerString = String(workerString.dropLast());
+        defaults.set(workerString, forKey: DataKeys.workerDicKey)
         
-        let path = FileManager.default.urls(for: .documentDirectory,
-                                            in: .userDomainMask)[0].appendingPathComponent("data")
-
-        if let stringData = stringToSave.data(using: .utf8) {
-            try? stringData.write(to: path)
-        }
     }
     public static func loadData() {
-        print("loading")
-        if (!dataExists()) {return;}
-        print("no exist")
-        let path = FileManager.default.urls(for: .documentDirectory,
-                                            in: .userDomainMask)[0].appendingPathComponent("data")
-        do{
-            let data:String = try String(contentsOf: path, encoding: .utf8)
-            var i = 0;
-            for str in data.components(separatedBy: "~"){
-                if i == 0 {
-                    User.Money = Double(str)!
-                }else if i == 1 {
-                    User.currAxe = Axes.axes[Int(str)!]!
-                }else if i == 2 {
-                    User.currTree = Trees.trees[Int(str)!]!
-                }else if i == 3 {
-                    for s in str.components(separatedBy: "#") {
-                        let com = s.components(separatedBy: ":")
-                        Workers.workers[com[0]]?.count = Double(com[1])!
-                    }
-                }
-                i+=1;
-            }
-        }catch{print("error")}
-    }
-
-    private static func dataExists() -> Bool {
-        let fm = FileManager.default;
-        let urls = fm.urls(for: .documentDirectory, in: .userDomainMask);
-        let url = urls.first;
-        let fileURL:String = url!.appendingPathComponent("data").absoluteString;
-
-        if fm.fileExists(atPath: fileURL) {
-            return true;
+        let defaults = UserDefaults.standard;
+        if let moneyString = defaults.string(forKey: DataKeys.moneyKey) {
+            User.Money = Double(moneyString)!
         }
-        return false;
+        if let axeLevelString = defaults.string(forKey: DataKeys.axeLevelKey) {
+            User.currAxe = Axes.axes[Int(axeLevelString)!]!
+        }
+        if let treeLevelString = defaults.string(forKey: DataKeys.treeLevelKey) {
+            User.currTree = Trees.trees[Int(treeLevelString)!]!
+        }
+        if let workerDicString = defaults.string(forKey: DataKeys.workerDicKey) {
+            for string in workerDicString.components(separatedBy: "~") {
+                let str:[String] = string.components(separatedBy: ":");
+                
+            }
+        }
     }
 }
