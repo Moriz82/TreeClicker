@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     var currTick:Double = 0;
     var currSecond:Double = 0;
     var timer = Timer();
+    @IBOutlet weak var MenuPanel: UIScrollView!
+    @IBOutlet var MainView: UIView!
     
     // MARK: TO BE DELETED!
     @IBOutlet weak var moneyLabel: UILabel!
@@ -43,7 +45,12 @@ class ViewController: UIViewController {
             DataSavingManager.saveData(money: User.Money, axeLevel: User.currAxe.Level, treeLevel: User.currTree.Level, workerDic: workersDic);
         });
     }
-
+    @IBAction func shopButtonPressed(_ sender: Any) {
+    }
+    @IBAction func MenuButtonPressed(_ sender: Any) {
+        MenuPanel.isHidden=false
+    }
+    
     func Update() { // Update method is ran every tick
 
         // Check and update all workers
