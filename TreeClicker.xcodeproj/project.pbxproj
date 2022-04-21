@@ -20,6 +20,7 @@
 		031F2C85280F170900118779 /* Axe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C80280F170900118779 /* Axe.swift */; };
 		031F2C86280F170900118779 /* Workers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C81280F170900118779 /* Workers.swift */; };
 		031F2C88280F22BB00118779 /* DataSavingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C87280F22BB00118779 /* DataSavingManager.swift */; };
+		031F2C8A28108B0C00118779 /* ItemInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C8928108B0C00118779 /* ItemInit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		031F2C80280F170900118779 /* Axe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Axe.swift; sourceTree = "<group>"; };
 		031F2C81280F170900118779 /* Workers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workers.swift; sourceTree = "<group>"; };
 		031F2C87280F22BB00118779 /* DataSavingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSavingManager.swift; sourceTree = "<group>"; };
+		031F2C8928108B0C00118779 /* ItemInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				031F2C7E280F170900118779 /* User.swift */,
 				031F2C81280F170900118779 /* Workers.swift */,
 				031F2C87280F22BB00118779 /* DataSavingManager.swift */,
+				031F2C8928108B0C00118779 /* ItemInit.swift */,
 			);
 			path = attributes;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				031F2C4F280F163E00118779 /* ViewController.swift in Sources */,
+				031F2C8A28108B0C00118779 /* ItemInit.swift in Sources */,
 				031F2C85280F170900118779 /* Axe.swift in Sources */,
 				031F2C4B280F163E00118779 /* AppDelegate.swift in Sources */,
 				031F2C84280F170900118779 /* Tree.swift in Sources */,

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-public class Worker : Codable {
+public class Worker {
     public let wantedTicks:Double;
     public let moneyEarned:Double;
     public let cost:Int;

@@ -9,6 +9,7 @@ import Foundation
 
 class DataSavingManager {
     public static func saveData(money:Double, axeLevel:Int, treeLevel:Int, workerDic:[String:Int]) {
+        print("save")
         var stringToSave:String = ""
         
         stringToSave += "\(money)~"
@@ -27,9 +28,9 @@ class DataSavingManager {
         }
     }
     public static func loadData() {
-
+        print("loading")
         if (!dataExists()) {return;}
-
+        print("no exist")
         let path = FileManager.default.urls(for: .documentDirectory,
                                             in: .userDomainMask)[0].appendingPathComponent("data")
         do{
@@ -50,7 +51,7 @@ class DataSavingManager {
                 }
                 i+=1;
             }
-        }catch{}
+        }catch{print("error")}
     }
 
     private static func dataExists() -> Bool {

@@ -22,13 +22,13 @@ public class Axe {
     }
     
     
-    func get_Name()->String{
+    func getName()->String{
         return Name
     }
-    func get_Damage()->Int{
+    func getDamage()->Int{
         return Damage
     }
-    func get_Image()->UIImage{
+    func getImage()->UIImage{
         return Image
     }
 }
