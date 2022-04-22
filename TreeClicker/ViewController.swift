@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     // MARK: TO BE DELETED!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var chopperLabel: UILabel!
+    @IBOutlet weak var axeLabel: UILabel!
     @IBAction func moneyButton(_ sender: Any) { User.Money += 1; }
     @IBAction func shopButtonClicl(_ sender: Any) { Workers.workers["Chopper"]!.count += 1; }
     // MARK: ^^^^^^^^^^^^^^
@@ -46,9 +47,19 @@ class ViewController: UIViewController {
         });
     }
     @IBAction func shopButtonPressed(_ sender: Any) {
+        MenuPanel.isHidden = true;
+        let vc = (self.storyboard!.instantiateViewController(withIdentifier: "ShopViewController") as? ShopViewController)!
+        self.navigationController!.pushViewController( vc, animated: true)
     }
+    var isHidden = true;
     @IBAction func MenuButtonPressed(_ sender: Any) {
-        MenuPanel.isHidden=false
+        if isHidden {
+            MenuPanel.isHidden = false;
+            isHidden = false;
+        }else{
+            MenuPanel.isHidden = true;
+            isHidden = true;
+        }
     }
     
     func Update() { // Update method is ran every tick
@@ -66,6 +77,8 @@ class ViewController: UIViewController {
         moneyLabel.sizeToFit();
         chopperLabel.text = "Chopper count : \(Workers.workers["Chopper"]!.count)"
         chopperLabel.sizeToFit()
+        axeLabel.text = "\(User.currAxe.Name)"
+        axeLabel.sizeToFit()
     }
 
 }

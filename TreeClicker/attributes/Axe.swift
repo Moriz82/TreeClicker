@@ -13,12 +13,14 @@ public class Axe {
     let Damage:Int
     let Image:UIImage
     let Level:Int
+    let Cost:Int
     
-    init(Name:String,Damage:Int,Image:UIImage,Level:Int){
+    init(Name:String,Damage:Int,Image:UIImage,Level:Int,Cost:Int){
         self.Name=Name
         self.Damage=Damage
         self.Image=Image
         self.Level=Level
+        self.Cost=Cost
     }
     
     

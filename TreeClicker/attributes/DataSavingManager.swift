@@ -8,19 +8,22 @@
 import Foundation
 
 struct DataKeys {
-    static let moneyKey:String = "";
-    static let axeLevelKey:String = "";
-    static let treeLevelKey:String = "";
-    static let workerDicKey:String = "";
+    static let moneyKey:String = "0.0";
+    static let axeLevelKey:String = "0";
+    static let treeLevelKey:String = "0";
+    static let workerDicKey:String = "worker";
 }
 
 class DataSavingManager {
     public static func saveData(money:Double, axeLevel:Int, treeLevel:Int, workerDic:[String:Int]) {
         print("Started Saving Data");
         let defaults = UserDefaults.standard;
-        defaults.set(money, forKey: DataKeys.moneyKey);
-        defaults.set(axeLevel, forKey: DataKeys.axeLevelKey);
-        defaults.set(treeLevel, forKey: DataKeys.treeLevelKey);
+        defaults.setValue(money, forKey: DataKeys.moneyKey);
+        print("Saved Money  1/4");
+        defaults.setValue(axeLevel, forKey: DataKeys.axeLevelKey);
+        print("Saved Axe  2/4");
+        defaults.setValue(treeLevel, forKey: DataKeys.treeLevelKey);
+        print("Saved Tree  3/4");
         
         var workerString:String = "";
         
@@ -29,13 +32,15 @@ class DataSavingManager {
         }
 
         workerString = String(workerString.dropLast());
-        defaults.set(workerString, forKey: DataKeys.workerDicKey)
+        defaults.setValue(workerString, forKey: DataKeys.workerDicKey)
+        print("Saved Workers 4/4");
         print("Finished Saving");
     }
     public static func loadData() {
         print("Started Loading Data");
         let defaults = UserDefaults.standard;
         if let moneyString = defaults.string(forKey: DataKeys.moneyKey) {
+            print(moneyString)
             User.Money = Double(moneyString)!;
             print("Loaded Money 1/4");
         }
@@ -50,10 +55,10 @@ class DataSavingManager {
         if let workerDicString = defaults.string(forKey: DataKeys.workerDicKey) {
             for string in workerDicString.components(separatedBy: "~") {
                 let str:[String] = string.components(separatedBy: ":");
-                Workers.workers[str[0]!].count = Int(str[1]!)!;
+                Workers.workers[str[0]]!.count = Double(Int(str[1])!);
             }
             print("Loaded Workers 4/4");
         }
-        print("Finished Loading");
+        print("Finished Loading\n");
     }
 }

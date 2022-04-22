@@ -19,14 +19,14 @@ public class ItemInit {
         Workers.AddWorker(name: "WoodFactory", worker: Worker(wantedTicks: 1000, moneyEarned: 40000, cost: 50000000, lastTick: 0, count: 0));
         Workers.AddWorker(name: "WoodComplex", worker: Worker(wantedTicks: 20, moneyEarned: 10000, cost: 2147483647, lastTick: 0, count: 0));
         // Create Axes
-        Axes.addAxe(level: 0, axe: Axe(Name: "Dirt Axe", Damage: 10, Image: UIImage(), Level: 0));
-        Axes.addAxe(level: 1, axe: Axe(Name: "Wood Axe", Damage: 50, Image: UIImage(), Level: 1));
-        Axes.addAxe(level: 2, axe: Axe(Name: "Stone Axe", Damage: 100, Image: UIImage(), Level: 2));
-        Axes.addAxe(level: 3, axe: Axe(Name: "Iron Axe", Damage: 100, Image: UIImage(), Level: 3));
-        Axes.addAxe(level: 4, axe: Axe(Name: "Gold Axe", Damage: 10000, Image: UIImage(), Level: 4));
-        Axes.addAxe(level: 5, axe: Axe(Name: "Diamond Axe", Damage: 50000, Image: UIImage(), Level: 5));
-        Axes.addAxe(level: 6, axe: Axe(Name: "Whalen Axe", Damage: 99999999, Image: UIImage(), Level: 6));
-        Axes.addAxe(level: 7, axe: Axe(Name: "Oliver Axe", Damage: 2147483647, Image: UIImage(), Level: 7));
+        Axes.addAxe(level: 0, axe: Axe(Name: "Dirt Axe", Damage: 10, Image: UIImage(), Level: 0, Cost: 0));
+        Axes.addAxe(level: 1, axe: Axe(Name: "Wood Axe", Damage: 50, Image: UIImage(), Level: 1, Cost: 1));
+        Axes.addAxe(level: 2, axe: Axe(Name: "Stone Axe", Damage: 100, Image: UIImage(), Level: 2, Cost: 1));
+        Axes.addAxe(level: 3, axe: Axe(Name: "Iron Axe", Damage: 100, Image: UIImage(), Level: 3, Cost: 1));
+        Axes.addAxe(level: 4, axe: Axe(Name: "Gold Axe", Damage: 10000, Image: UIImage(), Level: 4, Cost: 1));
+        Axes.addAxe(level: 5, axe: Axe(Name: "Diamond Axe", Damage: 50000, Image: UIImage(), Level: 5, Cost: 1));
+        Axes.addAxe(level: 6, axe: Axe(Name: "Whalen Axe", Damage: 99999999, Image: UIImage(), Level: 6, Cost: 1));
+        Axes.addAxe(level: 7, axe: Axe(Name: "Oliver Axe", Damage: 2147483647, Image: UIImage(), Level: 7, Cost: 1));
         // Create Trees
         Trees.AddTree(level: 0, tree: Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: UIImage(), Level: 0));
         Trees.AddTree(level: 1, tree: Tree(Name: "Wood Tree", Health: 5000, Worth: 100, Image: UIImage(), Level: 1));
