@@ -18,10 +18,6 @@ class ViewController: UIViewController {
     
     // MARK: TO BE DELETED!
     @IBOutlet weak var moneyLabel: UILabel!
-    @IBOutlet weak var chopperLabel: UILabel!
-    @IBOutlet weak var axeLabel: UILabel!
-    @IBAction func moneyButton(_ sender: Any) { User.Money += 1; }
-    @IBAction func shopButtonClicl(_ sender: Any) { Workers.workers["Chopper"]!.count += 1; }
     // MARK: ^^^^^^^^^^^^^^
     
     override func viewDidLoad() {
@@ -75,10 +71,6 @@ class ViewController: UIViewController {
         // Update money label
         moneyLabel.text = "Money : \(User.Money)";
         moneyLabel.sizeToFit();
-        chopperLabel.text = "Chopper count : \(Workers.workers["Chopper"]!.count)"
-        chopperLabel.sizeToFit()
-        axeLabel.text = "\(User.currAxe.Name)"
-        axeLabel.sizeToFit()
     }
 
 }
