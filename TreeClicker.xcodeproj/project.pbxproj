@@ -22,6 +22,7 @@
 		031F2C88280F22BB00118779 /* DataSavingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C87280F22BB00118779 /* DataSavingManager.swift */; };
 		031F2C8A28108B0C00118779 /* ItemInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F2C8928108B0C00118779 /* ItemInit.swift */; };
 		49C5ED512811C6090093C1E1 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5ED502811C6090093C1E1 /* ShopViewController.swift */; };
+		49C5ED53281706400093C1E1 /* PrestigeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5ED52281706400093C1E1 /* PrestigeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		031F2C87280F22BB00118779 /* DataSavingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSavingManager.swift; sourceTree = "<group>"; };
 		031F2C8928108B0C00118779 /* ItemInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInit.swift; sourceTree = "<group>"; };
 		49C5ED502811C6090093C1E1 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		49C5ED52281706400093C1E1 /* PrestigeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrestigeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				031F2C4C280F163E00118779 /* SceneDelegate.swift */,
 				031F2C4E280F163E00118779 /* ViewController.swift */,
 				031F2C50280F163E00118779 /* Main.storyboard */,
+				49C5ED52281706400093C1E1 /* PrestigeViewController.swift */,
 				031F2C53280F163F00118779 /* Assets.xcassets */,
 				031F2C55280F163F00118779 /* LaunchScreen.storyboard */,
 				031F2C58280F163F00118779 /* Info.plist */,
@@ -296,6 +299,7 @@
 				031F2C86280F170900118779 /* Workers.swift in Sources */,
 				031F2C83280F170900118779 /* User.swift in Sources */,
 				031F2C4D280F163E00118779 /* SceneDelegate.swift in Sources */,
+				49C5ED53281706400093C1E1 /* PrestigeViewController.swift in Sources */,
 				031F2C88280F22BB00118779 /* DataSavingManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,6 +47,11 @@ class ViewController: UIViewController {
         let vc = (self.storyboard!.instantiateViewController(withIdentifier: "ShopViewController") as? ShopViewController)!
         self.navigationController!.pushViewController( vc, animated: true)
     }
+    @IBAction func prestigeButtonPressed(_ sender: Any) {
+        MenuPanel.isHidden = true;
+        let vc = (self.storyboard!.instantiateViewController(withIdentifier: "PrestigeViewController") as? PrestigeViewController)!
+        self.navigationController!.pushViewController( vc, animated: true)
+    }
     var isHidden = true;
     @IBAction func MenuButtonPressed(_ sender: Any) {
         if isHidden {
