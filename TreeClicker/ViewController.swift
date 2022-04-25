@@ -13,12 +13,14 @@ class ViewController: UIViewController {
     var currTick:Double = 0;
     var currSecond:Double = 0;
     var timer = Timer();
+    var isHidden = true;
+    
     @IBOutlet weak var MenuPanel: UIScrollView!
     @IBOutlet var MainView: UIView!
-    
-    // MARK: TO BE DELETED!
+    @IBOutlet weak var treeButton: UIButton!
     @IBOutlet weak var moneyLabel: UILabel!
-    // MARK: ^^^^^^^^^^^^^^
+    @IBOutlet weak var healthLabel: UILabel!
+    @IBOutlet weak var healthBar: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -44,6 +46,7 @@ class ViewController: UIViewController {
     }
     @IBAction func shopButtonPressed(_ sender: Any) {
         MenuPanel.isHidden = true;
+        isHidden = true;
         let vc = (self.storyboard!.instantiateViewController(withIdentifier: "ShopViewController") as? ShopViewController)!
         self.navigationController!.pushViewController( vc, animated: true)
     }
@@ -63,6 +66,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func onTreeClicked(_ sender: UIButton) {
+        User.hitTree();
+    }
+    
     func Update() { // Update method is ran every tick
 
         // Check and update all workers
@@ -76,6 +83,12 @@ class ViewController: UIViewController {
         // Update money label
         moneyLabel.text = "Money : \(User.Money)";
         moneyLabel.sizeToFit();
+        
+        // Update Health Bar
+        print(healthBar.frame.size.width)
+        print(User.currTree.healthPercent)
+        healthBar.frame.size = CGSize(width: healthBar.frame.size.width * User.currTree.healthPercent, height: healthBar.frame.size.height)
+        healthLabel.text = "\(User.currTree.Health) / \(User.currTree.maxHealth)"
     }
 
 }
