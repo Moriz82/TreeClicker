@@ -15,6 +15,7 @@ public class Tree {
     let Worth:Int
     let Image:UIImage
     let Level:Int
+    var healthPercent:CGFloat
     
     init(Name:String, Health:Int, Worth:Int, Image:UIImage,Level:Int){
         self.Name=Name
@@ -23,6 +24,7 @@ public class Tree {
         self.Image=Image
         self.Level=Level
         self.maxHealth = Health;
+        self.healthPercent = 100;
     }
     func getName() -> String {
         return Name;
@@ -45,6 +47,7 @@ public class Tree {
             User.Money += Double(Worth);
             Health = maxHealth;
         }
+        healthPercent = CGFloat(Health / maxHealth) / 100;
     }
 }
 
