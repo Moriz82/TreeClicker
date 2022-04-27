@@ -24,7 +24,7 @@ public class Tree {
         self.Image=Image
         self.Level=Level
         self.maxHealth = Health;
-        self.healthPercent = 100;
+        self.healthPercent = 1;
     }
     func getName() -> String {
         return Name;
@@ -46,8 +46,10 @@ public class Tree {
         if Health <= 0 {
             User.Money += Double(Worth);
             Health = maxHealth;
+            healthPercent = 1;
         }
-        healthPercent = CGFloat(Health / maxHealth) / 100;
+        healthPercent = (CGFloat(Health) / CGFloat(maxHealth));
+        ViewController.healthBarNeedUpdate = true;
     }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct DataKeys {
     static let moneyKey:String = "0.0";
@@ -30,6 +31,19 @@ class DataSavingManager {
         workerString = String(workerString.dropLast());
         defaults.setValue(workerString, forKey: DataKeys.workerDicKey)
     }
+    
+    public static func resetData() {
+        User.Money = 0.0;
+        User.currAxe = Axe(Name: "Dirt Axe", Damage: 10, Image: UIImage(), Level: 0, Cost:0);
+        User.currTree = Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: UIImage(), Level: 0);
+        var workerDic:[String:Int] = [:]
+        for (name, worker) in Workers.workers {
+            worker.count = 0;
+            workerDic[name] = Int(worker.count);
+        }
+        saveData(money: User.Money, axeLevel: User.currAxe.Level, treeLevel: User.currTree.Level, workerDic: workerDic)
+    }
+    
     public static func loadData() {
         let defaults = UserDefaults.standard;
         if let moneyString = defaults.string(forKey: DataKeys.moneyKey) {

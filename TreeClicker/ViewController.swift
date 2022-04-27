@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     var timer = Timer();
     var isHidden = true;
     
+    static var healthBarNeedUpdate = false;
+    
     @IBOutlet weak var MenuPanel: UIScrollView!
     @IBOutlet var MainView: UIView!
     @IBOutlet weak var treeButton: UIButton!
@@ -22,10 +24,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var healthLabel: UILabel!
     @IBOutlet weak var healthBar: UIImageView!
     
+    var healthBarMaxSize:CGFloat = 0.0;
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         // Initiate Items
         ItemInit.initItems();
+        healthBarMaxSize = healthBar.frame.size.width;
         // Load Data
         DataSavingManager.loadData();
         // Timer for updating based on defined tick rate
@@ -55,7 +60,6 @@ class ViewController: UIViewController {
         let vc = (self.storyboard!.instantiateViewController(withIdentifier: "PrestigeViewController") as? PrestigeViewController)!
         self.navigationController!.pushViewController( vc, animated: true)
     }
-    var isHidden = true;
     @IBAction func MenuButtonPressed(_ sender: Any) {
         if isHidden {
             MenuPanel.isHidden = false;
@@ -68,6 +72,9 @@ class ViewController: UIViewController {
     
     @IBAction func onTreeClicked(_ sender: UIButton) {
         User.hitTree();
+    }
+    @IBAction func restButtonClicked(_ sender: Any) {
+        DataSavingManager.resetData()
     }
     
     func Update() { // Update method is ran every tick
@@ -85,9 +92,11 @@ class ViewController: UIViewController {
         moneyLabel.sizeToFit();
         
         // Update Health Bar
-        print(healthBar.frame.size.width)
-        print(User.currTree.healthPercent)
-        healthBar.frame.size = CGSize(width: healthBar.frame.size.width * User.currTree.healthPercent, height: healthBar.frame.size.height)
+        if ViewController.healthBarNeedUpdate {
+            healthBar.frame.size = CGSize(width: healthBarMaxSize * User.currTree.healthPercent, height: healthBar.frame.size.height)
+            ViewController.healthBarNeedUpdate = false;
+        }
+        
         healthLabel.text = "\(User.currTree.Health) / \(User.currTree.maxHealth)"
     }
 
