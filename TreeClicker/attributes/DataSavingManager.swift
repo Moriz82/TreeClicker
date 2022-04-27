@@ -35,7 +35,7 @@ class DataSavingManager {
     public static func resetData() {
         User.Money = 0.0;
         User.currAxe = Axe(Name: "Dirt Axe", Damage: 10, Image: UIImage(), Level: 0, Cost:0);
-        User.currTree = Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: UIImage(), Level: 0);
+        User.currTree = Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: UIImage(), Level: 0, Cost: 0);
         var workerDic:[String:Int] = [:]
         for (name, worker) in Workers.workers {
             worker.count = 0;
