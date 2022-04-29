@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         // Initiate Items
         ItemInit.initItems();
         healthBarMaxSize = healthBar.frame.size.width;
+        treeButton.setBackgroundImage( User.currTree.Image, for: UIControl.State.normal)
         // Load Data
         DataSavingManager.loadData();
         // Timer for updating based on defined tick rate

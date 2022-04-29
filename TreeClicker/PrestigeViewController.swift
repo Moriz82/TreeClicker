@@ -8,11 +8,12 @@
 import UIKit
 
 class PrestigeViewController: UIViewController {
-
     @IBOutlet weak var treeImage: UIImageView!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
+    
     var currTreeNum=0
+    
     override func viewDidLoad() {
         refresh();
         super.viewDidLoad()

@@ -31,10 +31,10 @@ class ShopViewController: UIViewController {
                 axeButton = axeButton.createCopy();
                 let newPositionLabel:CGPoint = CGPoint(x: oldLabel.x, y: oldLabel.y + 30);
                 let newPositionButton:CGPoint = CGPoint(x: oldLabel.x, y: oldLabel.y + 30);
-                tableCom.frame.origin = newPosition;
-                tableCom.
-                tableCom.isHidden = false;
-                axeStackView.addSubview(tableCom)
+//                tableCom.frame.origin = newPosition;
+//                tableCom.
+//                tableCom.isHidden = false;
+//                axeStackView.addSubview(tableCom)
             }
         }
     }    

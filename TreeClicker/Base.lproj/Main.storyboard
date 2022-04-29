@@ -65,7 +65,6 @@
                                         </state>
                                         <connections>
                                             <action selector="prestigeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hj1-G8-qfC"/>
-                                            <action selector="shopButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ySm-ei-9Nb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7s-FB-uV1">
@@ -278,7 +277,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OCo-Tp-sVw">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dirt tree" translatesAutoresizingMaskIntoConstraints="NO" id="OCo-Tp-sVw">
                                 <rect key="frame" x="77" y="155" width="261" height="306"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -298,6 +297,11 @@
                         <viewLayoutGuide key="safeArea" id="Rwp-Vr-fQg"/>
                         <color key="backgroundColor" red="0.77004406679020976" green="0.80271109354864689" blue="0.001783144209373847" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <connections>
+                        <outlet property="costLabel" destination="Kwf-bm-eMd" id="twM-Jb-Y9H"/>
+                        <outlet property="treeImage" destination="OCo-Tp-sVw" id="QJC-x4-ofI"/>
+                        <outlet property="valueLabel" destination="37n-H6-MlU" id="1wO-s4-Uh0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Cn-mU-8xL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -322,6 +326,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="dirt tree" width="420" height="251"/>
         <image name="logo" width="2237" height="2193"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
