@@ -8,7 +8,7 @@
 import UIKit
 
 class ShopViewController: UIViewController {
-
+//do the funny
     @IBOutlet weak var axeItemLabel: UILabel!
     @IBOutlet weak var axeItemButton: UIButton!
     
@@ -32,7 +32,6 @@ class ShopViewController: UIViewController {
                 let newPositionLabel:CGPoint = CGPoint(x: oldLabel.x, y: oldLabel.y + 30);
                 let newPositionButton:CGPoint = CGPoint(x: oldLabel.x, y: oldLabel.y + 30);
                 tableCom.frame.origin = newPosition;
-                tableCom.
                 tableCom.isHidden = false;
                 axeStackView.addSubview(tableCom)
             }
