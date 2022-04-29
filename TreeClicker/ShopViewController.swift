@@ -29,15 +29,17 @@ class ShopViewController: UIViewController {
                 let oldButton:CGPoint = axeButton.frame.origin;
                 axeLabel = axeLabel.createCopy();
                 axeButton = axeButton.createCopy();
-                let newPositionLabel:CGPoint = CGPoint(x: oldLabel.x, y: oldLabel.y + 30);
-                let newPositionButton:CGPoint = CGPoint(x: oldLabel.x, y: oldLabel.y + 30);
-//                tableCom.frame.origin = newPosition;
-//                tableCom.
-//                tableCom.isHidden = false;
-//                axeStackView.addSubview(tableCom)
+                let newPositionLabel:CGPoint = CGPoint(x: oldLabel.x, y: oldLabel.y + 50);
+                let newPositionButton:CGPoint = CGPoint(x: oldButton.x, y: oldButton.y + 50);
+                axeLabel.frame.origin = newPositionLabel;
+                axeButton.frame.origin = newPositionButton;
+                axeLabel.isHidden = false;
+                axeButton.isHidden = false;
+                self.view.addSubview(axeLabel)
+                self.view.addSubview(axeButton)
             }
         }
-    }    
+    }
     @IBAction func onBackClicked(_ sender: UIButton) {
         self.navigationController!.popViewController(animated: true)
     }
