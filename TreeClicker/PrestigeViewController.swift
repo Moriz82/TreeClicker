@@ -28,16 +28,16 @@ class PrestigeViewController: UIViewController {
     }
     
     @IBAction func backTreeButtonPressed(_ sender: Any) {
-        if(Trees.trees.count < currTreeNum){
+        if(currTreeNum != 0){
             currTreeNum-=1;
         }
         else{
-            currTreeNum=Trees.trees.count
+            currTreeNum=Trees.trees.count-1
         }
         refresh()
     }
     @IBAction func nextTreeButtonPressed(_ sender: Any) {
-        if(Trees.trees.count > currTreeNum){
+        if(Trees.trees.count-1 > currTreeNum){
             currTreeNum+=1;
         }
         else{
