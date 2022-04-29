@@ -14,6 +14,7 @@ class PrestigeViewController: UIViewController {
     @IBOutlet weak var costLabel: UILabel!
     var currTreeNum=0
     override func viewDidLoad() {
+        refresh();
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
