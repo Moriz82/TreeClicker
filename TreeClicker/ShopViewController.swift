@@ -9,31 +9,30 @@ import UIKit
 
 class ShopViewController: UIViewController {
 
-    @IBOutlet weak var axeStackView: UIStackView!
-    @IBOutlet weak var treeStackView: UIStackView!
-    @IBOutlet weak var tableViewCom: UITableViewCell!
+    @IBOutlet weak var axeItemLabel: UILabel!
+    @IBOutlet weak var axeItemButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // display axes
-        var tableCom:UITableViewCell = tableViewCom;
+        var axeLabel:UILabel = axeItemLabel;
+        var axeButton:UIButton = axeItemButton;
+        
         for i in 0...Axes.axes.count-1 {
             let axe = Axes.axes[i]!
-            for subView in tableCom.contentView.subviews {
-                if let item = subView as? UILabel {
-                    item.text = "\(axe.Name), Level: \(axe.Level), Damage: \(axe.Damage)"
-                }
-                if let item = subView as? UIButton {
-                    item.tag = axe.Level;
-                    item.addTarget(self, action: #selector(buyButtonAction), for: .touchUpInside)
-                }
-            }
+            axeLabel.text = "\(axe.Name), Level: \(axe.Level), Damage: \(axe.Damage)"
+            axeButton.tag = axe.Level;
+            axeButton.addTarget(self, action: #selector(buyButtonAction), for: .touchUpInside)
             if i != Axes.axes.count-1 {
-                let old:CGPoint = tableCom.frame.origin;
-                tableCom = tableCom.createCopy();
-                let newPosition:CGPoint = CGPoint(x: old.x, y: old.y + 30);
+                let oldLabel:CGPoint = axeLabel.frame.origin;
+                let oldButton:CGPoint = axeButton.frame.origin;
+                axeLabel = axeLabel.createCopy();
+                axeButton = axeButton.createCopy();
+                let newPositionLabel:CGPoint = CGPoint(x: oldLabel.x, y: oldLabel.y + 30);
+                let newPositionButton:CGPoint = CGPoint(x: oldLabel.x, y: oldLabel.y + 30);
                 tableCom.frame.origin = newPosition;
+                tableCom.
                 tableCom.isHidden = false;
                 axeStackView.addSubview(tableCom)
             }
@@ -55,9 +54,16 @@ class ShopViewController: UIViewController {
 
 }
 
-extension UITableViewCell {
-    func createCopy() -> UITableViewCell {
+extension UILabel {
+    func createCopy() -> UILabel {
         let archivedData = NSKeyedArchiver.archivedData(withRootObject: self)
-        return NSKeyedUnarchiver.unarchiveObject(with: archivedData) as! UITableViewCell
+        return NSKeyedUnarchiver.unarchiveObject(with: archivedData) as! UILabel
+    }
+}
+
+extension UIButton {
+    func createCopy() -> UIButton {
+        let archivedData = NSKeyedArchiver.archivedData(withRootObject: self)
+        return NSKeyedUnarchiver.unarchiveObject(with: archivedData) as! UIButton
     }
 }
