@@ -17,12 +17,12 @@ class ViewController: UIViewController {
     
     static var healthBarNeedUpdate = false;
     
-    @IBOutlet weak var MenuPanel: UIScrollView!
+    //@IBOutlet weak var MenuPanel: UIScrollView!
     @IBOutlet var MainView: UIView!
-    @IBOutlet weak var treeButton: UIButton!
-    @IBOutlet weak var moneyLabel: UILabel!
-    @IBOutlet weak var healthLabel: UILabel!
-    @IBOutlet weak var healthBar: UIImageView!
+    //@IBOutlet weak var treeButton: UIButton!
+    //@IBOutlet weak var moneyLabel: UILabel!
+    //@IBOutlet weak var healthLabel: UILabel!
+   // @IBOutlet weak var healthBar: UIImageView!
     
     var healthBarMaxSize:CGFloat = 0.0;
     
@@ -30,8 +30,8 @@ class ViewController: UIViewController {
         super.viewDidLoad();
         // Initiate Items
         ItemInit.initItems();
-        healthBarMaxSize = healthBar.frame.size.width;
-        treeButton.setBackgroundImage( User.currTree.Image, for: UIControl.State.normal)
+        //healthBarMaxSize = healthBar.frame.size.width;
+        //treeButton.setBackgroundImage( User.currTree.Image, for: UIControl.State.normal)
         // Load Data
         DataSavingManager.loadData();
         // Timer for updating based on defined tick rate
@@ -51,22 +51,22 @@ class ViewController: UIViewController {
         });
     }
     @IBAction func shopButtonPressed(_ sender: Any) {
-        MenuPanel.isHidden = true;
+      //  MenuPanel.isHidden = true;
         isHidden = true;
         let vc = (self.storyboard!.instantiateViewController(withIdentifier: "ShopViewController") as? ShopViewController)!
         self.navigationController!.pushViewController( vc, animated: true)
     }
     @IBAction func prestigeButtonPressed(_ sender: Any) {
-        MenuPanel.isHidden = true;
+     //   MenuPanel.isHidden = true;
         let vc = (self.storyboard!.instantiateViewController(withIdentifier: "PrestigeViewController") as? PrestigeViewController)!
         self.navigationController!.pushViewController( vc, animated: true)
     }
     @IBAction func MenuButtonPressed(_ sender: Any) {
         if isHidden {
-            MenuPanel.isHidden = false;
+       //     MenuPanel.isHidden = false;
             isHidden = false;
         }else{
-            MenuPanel.isHidden = true;
+       //     MenuPanel.isHidden = true;
             isHidden = true;
         }
     }
@@ -89,16 +89,16 @@ class ViewController: UIViewController {
         }
 
         // Update money label
-        moneyLabel.text = "Money : \(User.Money)";
-        moneyLabel.sizeToFit();
+     //   moneyLabel.text = "Money : \(User.Money)";
+     //   moneyLabel.sizeToFit();
         
         // Update Health Bar
         if ViewController.healthBarNeedUpdate {
-            healthBar.frame.size = CGSize(width: healthBarMaxSize * User.currTree.healthPercent, height: healthBar.frame.size.height)
+     //       healthBar.frame.size = CGSize(width: healthBarMaxSize * User.currTree.healthPercent, height: healthBar.frame.size.height)
             ViewController.healthBarNeedUpdate = false;
         }
         
-        healthLabel.text = "\(User.currTree.Health) / \(User.currTree.maxHealth)"
+   //     healthLabel.text = "\(User.currTree.Health) / \(User.currTree.maxHealth)"
     }
 
 }
