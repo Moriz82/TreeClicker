@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     //@IBOutlet weak var moneyLabel: UILabel!
     //@IBOutlet weak var healthLabel: UILabel!
    // @IBOutlet weak var healthBar: UIImageView!
+    @IBOutlet weak var topView: UIView!
     
     var healthBarMaxSize:CGFloat = 0.0;
     
@@ -30,6 +31,7 @@ class ViewController: UIViewController {
         super.viewDidLoad();
         // Initiate Items
         ItemInit.initItems();
+        topView.layer.cornerRadius=30
         //healthBarMaxSize = healthBar.frame.size.width;
         //treeButton.setBackgroundImage( User.currTree.Image, for: UIControl.State.normal)
         // Load Data
