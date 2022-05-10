@@ -9,8 +9,8 @@ import UIKit
 
 class PrestigeViewController: UIViewController {
     @IBOutlet weak var treeImage: UIImageView!
-    @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
+    @IBOutlet weak var treeLabel: UILabel!
     
     var currTreeNum=0
     
@@ -22,7 +22,7 @@ class PrestigeViewController: UIViewController {
     }
     func refresh(){
         treeImage.image=Trees.trees[currTreeNum]!.Image
-        valueLabel.text="\(User.currTree.Worth) -> \(Trees.trees[currTreeNum]!)"
+        treeLabel.text="\(Trees.trees[currTreeNum]!.Name)"
         costLabel.text="$\(Trees.trees[currTreeNum]!.Cost)"
         
     }
@@ -46,10 +46,14 @@ class PrestigeViewController: UIViewController {
         refresh()
     }
     @IBAction func purchaseTreeButtonPressed(_ sender: Any) {
+        DataSavingManager.resetData()
+        User.currTree = Trees.trees[currTreeNum]!
     }
-    @IBAction func prestigeBackButtonPressed(_ sender: Any) {
-        self.navigationController!.popViewController(animated: true)
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
+    
     
 
     /*
