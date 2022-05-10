@@ -17,23 +17,23 @@ class ViewController: UIViewController {
     
     static var healthBarNeedUpdate = false;
     
-    //@IBOutlet weak var MenuPanel: UIScrollView!
     @IBOutlet var MainView: UIView!
-    //@IBOutlet weak var treeButton: UIButton!
-    //@IBOutlet weak var moneyLabel: UILabel!
-    //@IBOutlet weak var healthLabel: UILabel!
-   // @IBOutlet weak var healthBar: UIImageView!
-    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var TopView: UIView!
+    @IBOutlet weak var ProgressView: UIView!
     
-    var healthBarMaxSize:CGFloat = 0.0;
+    @IBOutlet weak var ProgressBar: UIProgressView!
     
+    @IBOutlet weak var MoneyByWorkersLabel: UILabel!
+    @IBOutlet weak var MoneyLabel: UILabel!
+    @IBOutlet weak var TreeChoppedLabel: UILabel!
+        
     override func viewDidLoad() {
         super.viewDidLoad();
         // Initiate Items
         ItemInit.initItems();
-        topView.layer.cornerRadius=30
-        //healthBarMaxSize = healthBar.frame.size.width;
-        //treeButton.setBackgroundImage( User.currTree.Image, for: UIControl.State.normal)
+        TopView.layer.cornerRadius=30
+        ProgressView.layer.cornerRadius=15
+
         // Load Data
         DataSavingManager.loadData();
         // Timer for updating based on defined tick rate
@@ -73,15 +73,18 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func onTreeClicked(_ sender: UIButton) {
-        User.hitTree();
+    @IBAction func TreeClicked(_ sender: Any) {
+        User.hitTree()
     }
     @IBAction func restButtonClicked(_ sender: Any) {
         DataSavingManager.resetData()
     }
     
     func Update() { // Update method is ran every tick
-
+        
+        // Update Health Bar
+        ProgressBar.setProgress(User.currTree.healthPercent, animated: false)
+    
         // Check and update all workers
         for (_, worker) in Workers.workers {
             if (currTick - worker.lastTick >= worker.wantedTicks) {
@@ -91,14 +94,10 @@ class ViewController: UIViewController {
         }
 
         // Update money label
-     //   moneyLabel.text = "Money : \(User.Money)";
-     //   moneyLabel.sizeToFit();
+        MoneyLabel.text = "\(User.Money)";
+        MoneyByWorkersLabel.text = ""
+        TreeChoppedLabel.text = "\(User.currTree.TreesChopped)"
         
-        // Update Health Bar
-        if ViewController.healthBarNeedUpdate {
-     //       healthBar.frame.size = CGSize(width: healthBarMaxSize * User.currTree.healthPercent, height: healthBar.frame.size.height)
-            ViewController.healthBarNeedUpdate = false;
-        }
         
    //     healthLabel.text = "\(User.currTree.Health) / \(User.currTree.maxHealth)"
     }
