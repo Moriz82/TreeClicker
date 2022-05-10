@@ -16,7 +16,8 @@ public class Tree {
     let Image:UIImage
     let Level:Int
     let Cost:Int
-    var healthPercent:CGFloat
+    var healthPercent:Float
+    var TreesChopped:Int
     
     init(Name:String, Health:Int, Worth:Int, Image:UIImage,Level:Int,Cost:Int){
         self.Name=Name
@@ -27,6 +28,7 @@ public class Tree {
         self.maxHealth = Health;
         self.healthPercent = 1;
         self.Cost=Cost
+        TreesChopped=0
     }
     func getName() -> String {
         return Name;
@@ -49,8 +51,9 @@ public class Tree {
             User.Money += Double(Worth);
             Health = maxHealth;
             healthPercent = 1;
+            TreesChopped+=1
         }
-        healthPercent = (CGFloat(Health) / CGFloat(maxHealth));
+        healthPercent = (Float(Health) / Float(maxHealth));
         ViewController.healthBarNeedUpdate = true;
     }
 }

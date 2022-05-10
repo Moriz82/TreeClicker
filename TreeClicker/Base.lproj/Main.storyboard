@@ -38,6 +38,9 @@
                                     </attributedString>
                                     <color key="baseBackgroundColor" red="0.92371832460000003" green="0.24606647209999999" blue="0.1161345059" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="TreeClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kgL-tz-sLV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EqD-dK-DWr">
                                 <rect key="frame" x="20" y="751" width="40" height="40"/>
@@ -83,6 +86,18 @@
                                 <rect key="frame" x="50" y="44" width="314" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kmq-f5-zQm">
+                                        <rect key="frame" x="85" y="33" width="145" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JxN-gG-CnQ">
+                                                <rect key="frame" x="17" y="19" width="110" height="4"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="progressTintColor" red="0.81895423180000004" green="0.15579429249999999" blue="0.067137971020000006" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </progressView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="money" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3b9-yF-OhE">
                                         <rect key="frame" x="41" y="6" width="127" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -120,7 +135,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jbw-fq-Kq8">
-                                <rect key="frame" x="57" y="198" width="300" height="500"/>
+                                <rect key="frame" x="57" y="146" width="300" height="552"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -131,7 +146,12 @@
                     <navigationItem key="navigationItem" id="WMv-Ws-gx4"/>
                     <connections>
                         <outlet property="MainView" destination="8bC-Xf-vdC" id="UBT-FY-6a4"/>
-                        <outlet property="topView" destination="vfX-gT-PAx" id="7pa-jl-Js0"/>
+                        <outlet property="MoneyByWorkersLabel" destination="oOd-6P-I3R" id="mf6-ZR-GRe"/>
+                        <outlet property="MoneyLabel" destination="3b9-yF-OhE" id="6MX-3k-ixs"/>
+                        <outlet property="ProgressBar" destination="JxN-gG-CnQ" id="V2S-pF-dRK"/>
+                        <outlet property="ProgressView" destination="kmq-f5-zQm" id="mZ2-v4-LZq"/>
+                        <outlet property="TopView" destination="vfX-gT-PAx" id="tF4-aQ-4Mu"/>
+                        <outlet property="TreeChoppedLabel" destination="MWy-h8-qNQ" id="aJj-O5-9Of"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
