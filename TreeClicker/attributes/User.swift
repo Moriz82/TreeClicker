@@ -12,6 +12,7 @@ public class User {
     static var Money:Double = 0;
     static var currAxe:Axe = Axe(Name: "Dirt Axe", Damage: 10, Image: UIImage(), Level: 0, Cost:0)
     static var currTree:Tree = Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: UIImage(), Level: 0, Cost:0)
+    static var message:String = ""
     
     private static let filename:String = "userdata";
 

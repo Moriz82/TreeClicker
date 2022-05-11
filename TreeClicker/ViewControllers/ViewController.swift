@@ -52,32 +52,9 @@ class ViewController: UIViewController {
             DataSavingManager.saveData(money: User.Money, axeLevel: User.currAxe.Level, treeLevel: User.currTree.Level, workerDic: workersDic);
         });
     }
-    @IBAction func shopButtonPressed(_ sender: Any) {
-      //  MenuPanel.isHidden = true;
-        isHidden = true;
-        let vc = (self.storyboard!.instantiateViewController(withIdentifier: "ShopViewController") as? ShopViewController)!
-        self.navigationController!.pushViewController( vc, animated: true)
-    }
-    @IBAction func prestigeButtonPressed(_ sender: Any) {
-     //   MenuPanel.isHidden = true;
-        let vc = (self.storyboard!.instantiateViewController(withIdentifier: "PrestigeViewController") as? PrestigeViewController)!
-        self.navigationController!.pushViewController( vc, animated: true)
-    }
-    @IBAction func MenuButtonPressed(_ sender: Any) {
-        if isHidden {
-       //     MenuPanel.isHidden = false;
-            isHidden = false;
-        }else{
-       //     MenuPanel.isHidden = true;
-            isHidden = true;
-        }
-    }
     
     @IBAction func TreeClicked(_ sender: Any) {
         User.hitTree()
-    }
-    @IBAction func restButtonClicked(_ sender: Any) {
-        DataSavingManager.resetData()
     }
     
     func Update() { // Update method is ran every tick
@@ -96,8 +73,7 @@ class ViewController: UIViewController {
         // Update money label
         MoneyLabel.text = "\(User.Money)";
         MoneyByWorkersLabel.text = ""
-        TreeChoppedLabel.text = "\(User.currTree.TreesChopped)"
-        
+        TreeChoppedLabel.text = "\(User.currTree.chopped)"
         
    //     healthLabel.text = "\(User.currTree.Health) / \(User.currTree.maxHealth)"
     }

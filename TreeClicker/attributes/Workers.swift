@@ -15,13 +15,15 @@ public class Worker {
     public let cost:Int;
     public var lastTick:Double;
     public var count:Double;
+    public let Image:UIImage
 
-    init (wantedTicks:Double, moneyEarned:Double, cost:Int, lastTick:Double, count:Double) {
+    init (wantedTicks:Double, moneyEarned:Double, cost:Int, lastTick:Double, count:Double, Image:UIImage) {
         self.wantedTicks = wantedTicks;
         self.moneyEarned = moneyEarned;
         self.cost = cost;
         self.lastTick = lastTick;
         self.count = count;
+        self.Image = Image;
     }
 }
 

@@ -27,7 +27,7 @@ class ShopViewController: UIViewController {
     func refresh(){
         axeImage.image=Axes.axes[currAxeNumber]!.Image
         axeNameLabel.text="\(Axes.axes[currAxeNumber]!.Name) $\(Axes.axes[currAxeNumber]!.Cost)"
-        axeDamageLabel.text="$\(Axes.axes[currAxeNumber]!.Damage)"
+        axeDamageLabel.text="Damage : \(Axes.axes[currAxeNumber]!.Damage)"
     }
     
     
@@ -59,6 +59,10 @@ class ShopViewController: UIViewController {
         if (Axes.axes[currAxeNumber]!.Cost <= Int(User.Money)) {
             User.Money -= Double(Axes.axes[currAxeNumber]!.Cost);
             User.currAxe = Axes.axes[currAxeNumber]!;
+            User.message = "\(User.currAxe.Name) Bought Successfully"
         }
+        else {User.message = "Not Enough Money!"}
+        let vc = (storyboard!.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController)!
+        self.present(vc, animated: true, completion: nil)
     }
 }

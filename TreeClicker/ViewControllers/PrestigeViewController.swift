@@ -46,24 +46,19 @@ class PrestigeViewController: UIViewController {
         refresh()
     }
     @IBAction func purchaseTreeButtonPressed(_ sender: Any) {
-        DataSavingManager.resetData()
-        User.currTree = Trees.trees[currTreeNum]!
+        if (Int(User.Money) >= Trees.trees[currTreeNum]!.Cost){
+            DataSavingManager.resetData()
+            User.currTree = Trees.trees[currTreeNum]!
+            User.message = "\(Trees.trees[currTreeNum]!.Name) Bought Successfully"
+        }
+        else {User.message = "Not Enough Money!"}
+        let vc = (storyboard!.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController)!
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
