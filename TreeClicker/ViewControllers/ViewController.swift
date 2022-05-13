@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     
     static var healthBarNeedUpdate = false;
     
+    
+    @IBOutlet weak var TreeImage: UIImageView!
     @IBOutlet var MainView: UIView!
     @IBOutlet weak var TopView: UIView!
     @IBOutlet weak var ProgressView: UIView!
@@ -29,9 +31,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var TreeChoppedLabel: UILabel!
     //1,000,000,000
     let NumName:[String] = ["Thousand","Million","Billion","Trillion","Quadrillion","Quintillion"]
-        
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+
         // Initiate Items
         ItemInit.initItems();
         TopView.layer.cornerRadius=30
@@ -55,6 +60,7 @@ class ViewController: UIViewController {
             DataSavingManager.saveData(money: User.Money, axeLevel: User.currAxe.Level, treeLevel: User.currTree.Level, workerDic: workersDic);
         });
     }
+    
     func SetNumName(BigNumber:Double,NumberLabel:UILabel,NameNumberLabel:UILabel){
         var CurrName:String = ""
         var NumDec:Double=0
@@ -69,6 +75,9 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func TreeButtonDown(_ sender: Any) {
+        TreeImage.alpha = 0.8
+    }
     @IBAction func shopButtonPressed(_ sender: Any) {
       //  MenuPanel.isHidden = true;
         isHidden = true;
@@ -91,10 +100,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func TreeClicked(_ sender: Any) {
+        TreeImage.alpha=1
         User.hitTree()
     }
     
     func Update() { // Update method is ran every tick
+        
+        
+        let imageCont = TreeImage.bounds;
+        let iWidth = imageCont.size.width;
+        let MaxHeight = imageCont.size.height
+        let iHeight:CGFloat = MaxHeight * CGFloat(User.currTree.healthPercent)
+        
+        TreeImage.image = User.currTree.Image
+        TreeImage.bounds = CGRect(x: TreeImage.frame.origin.x, y: TreeImage.frame.origin.y, width: iWidth, height: iHeight)
         
         SetNumName(BigNumber: User.Money, NumberLabel: MoneyLabel, NameNumberLabel: NumNameLabel)
         

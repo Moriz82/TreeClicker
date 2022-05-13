@@ -106,6 +106,7 @@
                                     <color key="baseBackgroundColor" red="0.92371832460000003" green="0.24606647209999999" blue="0.1161345059" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="TreeButtonDown:" destination="BYZ-38-t0r" eventType="touchDown" id="0m4-Gs-qmd"/>
                                     <action selector="TreeClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kgL-tz-sLV"/>
                                 </connections>
                             </button>
@@ -196,7 +197,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Qg9-Dg-fXM">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tree" translatesAutoresizingMaskIntoConstraints="NO" id="Qg9-Dg-fXM">
                                         <rect key="frame" x="281" y="23" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -236,6 +237,7 @@
                         <outlet property="ProgressView" destination="kmq-f5-zQm" id="mZ2-v4-LZq"/>
                         <outlet property="TopView" destination="vfX-gT-PAx" id="tF4-aQ-4Mu"/>
                         <outlet property="TreeChoppedLabel" destination="MWy-h8-qNQ" id="aJj-O5-9Of"/>
+                        <outlet property="TreeImage" destination="Jbw-fq-Kq8" id="krq-QR-gVY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -771,7 +773,7 @@
     <resources>
         <image name="background-1" width="1000" height="1500"/>
         <image name="cash" width="512" height="512"/>
-        <image name="logo" width="2237" height="2193"/>
+        <image name="tree" width="418" height="597"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
