@@ -24,8 +24,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var ProgressBar: UIProgressView!
     
     @IBOutlet weak var MoneyByWorkersLabel: UILabel!
+    @IBOutlet weak var NumNameLabel: UILabel!
     @IBOutlet weak var MoneyLabel: UILabel!
     @IBOutlet weak var TreeChoppedLabel: UILabel!
+    //1,000,000,000
+    let NumName:[String] = ["Thousand","Million","Billion","Trillion","Quadrillion","Quintillion"]
         
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -52,12 +55,48 @@ class ViewController: UIViewController {
             DataSavingManager.saveData(money: User.Money, axeLevel: User.currAxe.Level, treeLevel: User.currTree.Level, workerDic: workersDic);
         });
     }
+    func SetNumName(BigNumber:Double,NumberLabel:UILabel,NameNumberLabel:UILabel){
+        var CurrName:String = ""
+        var NumDec:Double=0
+        for i in stride(from: 0, to: NumName.count-1, by: 1){
+            if((i*3)+4 <= BigNumber.exponent-7){
+                NumDec=Double(BigNumber.exponent-8)
+                CurrName = NumName[i]
+            }
+        }
+        NumberLabel.text = "\(BigNumber/(pow(10, NumDec)))"
+        NameNumberLabel.text = CurrName
+        
+    }
+    
+    @IBAction func shopButtonPressed(_ sender: Any) {
+      //  MenuPanel.isHidden = true;
+        isHidden = true;
+        let vc = (self.storyboard!.instantiateViewController(withIdentifier: "ShopViewController") as? ShopViewController)!
+        self.navigationController!.pushViewController( vc, animated: true)
+    }
+    @IBAction func prestigeButtonPressed(_ sender: Any) {
+     //   MenuPanel.isHidden = true;
+        let vc = (self.storyboard!.instantiateViewController(withIdentifier: "PrestigeViewController") as? PrestigeViewController)!
+        self.navigationController!.pushViewController( vc, animated: true)
+    }
+    @IBAction func MenuButtonPressed(_ sender: Any) {
+        if isHidden {
+       //     MenuPanel.isHidden = false;
+            isHidden = false;
+        }else{
+       //     MenuPanel.isHidden = true;
+            isHidden = true;
+        }
+    }
     
     @IBAction func TreeClicked(_ sender: Any) {
         User.hitTree()
     }
     
     func Update() { // Update method is ran every tick
+        
+        SetNumName(BigNumber: User.Money, NumberLabel: MoneyLabel, NameNumberLabel: NumNameLabel)
         
         // Update Health Bar
         ProgressBar.setProgress(User.currTree.healthPercent, animated: false)
@@ -69,9 +108,8 @@ class ViewController: UIViewController {
                 User.Money += worker.moneyEarned * worker.count;
             }
         }
-
+        
         // Update money label
-        MoneyLabel.text = "\(User.Money)";
         MoneyByWorkersLabel.text = ""
         TreeChoppedLabel.text = "\(User.currTree.chopped)"
         
