@@ -10,8 +10,9 @@ import UIKit
 
 struct DataKeys {
     static let moneyKey:String = "0.0";
-    static let axeLevelKey:String = "0";
-    static let treeLevelKey:String = "0";
+    static let axeLevelKey:String = "axelevel";
+    static let treeLevelKey:String = "treelevel";
+    static let treesChopped:String = "chop";
     static let workerDicKey:String = "worker";
 }
 
@@ -21,6 +22,7 @@ class DataSavingManager {
         defaults.setValue(money, forKey: DataKeys.moneyKey);
         defaults.setValue(axeLevel, forKey: DataKeys.axeLevelKey);
         defaults.setValue(treeLevel, forKey: DataKeys.treeLevelKey);
+        defaults.setValue(User.currTree.chopped, forKey: DataKeys.treesChopped);
         
         var workerString:String = "";
         
@@ -34,7 +36,7 @@ class DataSavingManager {
     
     public static func resetData() {
         User.Money = 0.0;
-        User.currAxe = Axe(Name: "Dirt Axe", Damage: 10, Image: UIImage(), Level: 0, Cost:0);
+        //User.currAxe = Axe(Name: "Dirt Axe", Damage: 10, Image: UIImage(), Level: 0, Cost:0);
         User.currTree = Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: UIImage(), Level: 0, Cost: 0);
         var workerDic:[String:Int] = [:]
         for (name, worker) in Workers.workers {
@@ -54,6 +56,9 @@ class DataSavingManager {
         }
         if let treeLevelString = defaults.string(forKey: DataKeys.treeLevelKey) {
             User.currTree = Trees.trees[Int(treeLevelString)!]!;
+        }
+        if let choppedString = defaults.string(forKey: DataKeys.treesChopped) {
+        User.currTree.chopped = Int(choppedString)!;
         }
         if let workerDicString = defaults.string(forKey: DataKeys.workerDicKey) {
             for string in workerDicString.components(separatedBy: "~") {

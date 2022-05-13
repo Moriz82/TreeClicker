@@ -84,8 +84,8 @@ class WorkerViewController: UIViewController {
     }
     
     @IBAction func buyButtonClicked(_ sender: Any) {
-        if (Int(User.Money) >= Workers.workers[currWorkerName]!.cost) {
-            User.Money -= Double(Workers.workers[currWorkerName]!.cost);
+        if (Int(User.Money) >= Workers.workers[currWorkerName]!.cost * Int(amount)) {
+            User.Money -= Double(Workers.workers[currWorkerName]!.cost) * Double(amount);
             Workers.workers[currWorkerName]!.count += Double(amount);
             workerNameLabel.text="\(currWorkerName)  $\(Workers.workers[currWorkerName]!.cost)"
             User.message = "\(currWorkerName) Bought Successfully"
