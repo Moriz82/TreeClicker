@@ -17,8 +17,8 @@ class ViewController: UIViewController {
     
     static var healthBarNeedUpdate = false;
     
-    
     @IBOutlet weak var TreeImage: UIImageView!
+    
     @IBOutlet var MainView: UIView!
     @IBOutlet weak var TopView: UIView!
     @IBOutlet weak var ProgressView: UIView!
@@ -62,17 +62,18 @@ class ViewController: UIViewController {
     }
     
     func SetNumName(BigNumber:Double,NumberLabel:UILabel,NameNumberLabel:UILabel){
-        var CurrName:String = ""
-        var NumDec:Double=0
-        for i in stride(from: 0, to: NumName.count-1, by: 1){
-            if((i*3)+4 <= BigNumber.exponent-7){
-                NumDec=Double(BigNumber.exponent-8)
-                CurrName = NumName[i]
+        do{
+            var CurrName:String = ""
+            var NumDec:Double=0
+            for i in stride(from: 0, to: NumName.count-1, by: 1){
+                if((i*3)+4 <= BigNumber.exponent-7){
+                    NumDec=Double(BigNumber.exponent-8)
+                    CurrName = NumName[i]
+                }
             }
-        }
-        NumberLabel.text = "\(BigNumber/(pow(10, NumDec)))"
-        NameNumberLabel.text = CurrName
-        
+            NumberLabel.text = "\(BigNumber/(pow(10, NumDec)))"
+            NameNumberLabel.text = CurrName
+        }        
     }
     
     @IBAction func TreeButtonDown(_ sender: Any) {
