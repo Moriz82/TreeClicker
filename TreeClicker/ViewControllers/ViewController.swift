@@ -71,9 +71,10 @@ class ViewController: UIViewController {
         
         for i in NumNames.keys{
           if(BigNumber/pow(10,i)>=1){
-              print("this:\(i)")
-            ResNumNam = NumNames[i]!
-            ResNum = BigNumber/pow(10, i)
+              if(BigNumber/pow(10, i) < ResNum){
+                  ResNumNam = NumNames[i]!
+                  ResNum = BigNumber/pow(10, i)
+              }
           }
         }
         
