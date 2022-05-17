@@ -25,14 +25,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var ProgressBar: UIProgressView!
     
-    @IBOutlet weak var MoneyByWorkersLabel: UILabel!
     @IBOutlet weak var NumNameLabel: UILabel!
     @IBOutlet weak var MoneyLabel: UILabel!
     @IBOutlet weak var TreeChoppedLabel: UILabel!
-    //1,000,000,000
-    let NumName:[String] = ["Thousand","Million","Billion","Trillion","Quadrillion","Quintillion"]
-    
-    
+    //1,000,000
+    var NumNames:[Double:String] = [3:"Thousand",6:"Million",9:"Billion",12:"Trillion",15:"Quadrillion",18:"Quintillion"]
+
     override func viewDidLoad() {
         super.viewDidLoad();
         
@@ -61,60 +59,51 @@ class ViewController: UIViewController {
         });
     }
     
+        
     func SetNumName(BigNumber:Double,NumberLabel:UILabel,NameNumberLabel:UILabel){
-        do{
-            var CurrName:String = ""
-            var NumDec:Double=0
-            for i in stride(from: 0, to: NumName.count-1, by: 1){
-                if((i*3)+4 <= BigNumber.exponent-7){
-                    NumDec=Double(BigNumber.exponent-8)
-                    CurrName = NumName[i]
-                }
-            }
-            NumberLabel.text = "\(BigNumber/(pow(10, NumDec)))"
-            NameNumberLabel.text = CurrName
-        }        
+        if BigNumber == 0{
+            User.Money=1
+            
+            return
+        }
+        var ResNum = BigNumber
+        var ResNumNam = ""
+        
+        for i in NumNames.keys{
+          if(BigNumber/pow(10,i)>=1){
+            
+            ResNumNam = NumNames[i]!
+            ResNum = BigNumber/pow(10, i)
+          }
+        }
+        
+            NumberLabel.text = "\(ResNum)"
+            NameNumberLabel.text = "\(ResNumNam)"
     }
     
-    @IBAction func TreeButtonDown(_ sender: Any) {
+    
+    @IBAction func ButtonTreeDown(_ sender: Any) {
         TreeImage.alpha = 0.8
-    }
-    @IBAction func shopButtonPressed(_ sender: Any) {
-      //  MenuPanel.isHidden = true;
-        isHidden = true;
-        let vc = (self.storyboard!.instantiateViewController(withIdentifier: "ShopViewController") as? ShopViewController)!
-        self.navigationController!.pushViewController( vc, animated: true)
-    }
-    @IBAction func prestigeButtonPressed(_ sender: Any) {
-     //   MenuPanel.isHidden = true;
-        let vc = (self.storyboard!.instantiateViewController(withIdentifier: "PrestigeViewController") as? PrestigeViewController)!
-        self.navigationController!.pushViewController( vc, animated: true)
-    }
-    @IBAction func MenuButtonPressed(_ sender: Any) {
-        if isHidden {
-       //     MenuPanel.isHidden = false;
-            isHidden = false;
-        }else{
-       //     MenuPanel.isHidden = true;
-            isHidden = true;
-        }
     }
     
     @IBAction func TreeClicked(_ sender: Any) {
         TreeImage.alpha=1
+        
+        print(User.Money.exponent)
+        
+        let imageCont = self.TreeImage.bounds;
+        let iWidth = imageCont.size.width;
+        let iHeight:CGFloat = 644 * CGFloat(User.currTree.healthPercent)
+        
+        TreeImage.bounds = CGRect(x: TreeImage.frame.origin.x, y: TreeImage.frame.origin.y, width: iWidth, height: iHeight)
+
+        
         User.hitTree()
     }
     
     func Update() { // Update method is ran every tick
         
-        
-        let imageCont = TreeImage.bounds;
-        let iWidth = imageCont.size.width;
-        let MaxHeight = imageCont.size.height
-        let iHeight:CGFloat = MaxHeight * CGFloat(User.currTree.healthPercent)
-        
         TreeImage.image = User.currTree.Image
-        TreeImage.bounds = CGRect(x: TreeImage.frame.origin.x, y: TreeImage.frame.origin.y, width: iWidth, height: iHeight)
         
         SetNumName(BigNumber: User.Money, NumberLabel: MoneyLabel, NameNumberLabel: NumNameLabel)
         
@@ -130,7 +119,6 @@ class ViewController: UIViewController {
         }
         
         // Update money label
-        MoneyByWorkersLabel.text = ""
         TreeChoppedLabel.text = "\(User.currTree.chopped)"
         
    //     healthLabel.text = "\(User.currTree.Health) / \(User.currTree.maxHealth)"

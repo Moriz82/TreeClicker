@@ -26,7 +26,7 @@ public class ItemInit {
         Axes.addAxe(level: 4, axe: Axe(Name: "Gold Axe", Damage: 10000, Image: UIImage(named: "goldaxe")!, Level: 4, Cost: 1));
         Axes.addAxe(level: 5, axe: Axe(Name: "Diamond Axe", Damage: 50000, Image: UIImage(named: "daxe")!, Level: 5, Cost: 1));
         Axes.addAxe(level: 6, axe: Axe(Name: "Whalen Axe", Damage: 99999999, Image: UIImage(named: "whalenaxe")!, Level: 6, Cost: 1));
-        Axes.addAxe(level: 7, axe: Axe(Name: "Oliver Axe", Damage: 2147483647, Image: UIImage(named: "axe")!, Level: 7, Cost: 1));
+        Axes.addAxe(level: 7, axe: Axe(Name: "Oliver Axe", Damage: 2147483647, Image: UIImage(named: "oliveraxe")!, Level: 7, Cost: 1));
         // Create Trees
         Trees.AddTree(level: 0, tree: Tree(Name: "Dirt Tree", Health: 100, Worth: 10, Image: UIImage(named:"dirttree")!, Level: 0, Cost: 10));
         Trees.AddTree(level: 1, tree: Tree(Name: "Wood Tree", Health: 5000, Worth: 100, Image: UIImage(named:"woodtree")!, Level: 1, Cost: 10));
@@ -35,6 +35,6 @@ public class ItemInit {
         Trees.AddTree(level: 4, tree: Tree(Name: "Gold Tree", Health: 20000900, Worth: 5097970, Image: UIImage(named: "goldtree")!, Level: 4, Cost: 10));
         Trees.AddTree(level: 5, tree: Tree(Name: "Diamond Tree", Health: 19809900, Worth: 19868750, Image: UIImage(named: "diamond tree")!, Level: 5, Cost: 10));
         Trees.AddTree(level: 6, tree: Tree(Name: "Whalen Tree", Health: 999999999, Worth: 999999999, Image: UIImage(named: "whalentree")!, Level: 6, Cost: 10));
-        Trees.AddTree(level: 7, tree: Tree(Name: "Oliver Tree", Health: 2147483647, Worth: 2147483647, Image: UIImage(named: "tree")!, Level: 7, Cost: 10));
+        Trees.AddTree(level: 7, tree: Tree(Name: "Oliver Tree", Health: 2147483647, Worth: 2147483647, Image: UIImage(named: "olivertree")!, Level: 7, Cost: 10));
     }
 }
