@@ -11,13 +11,13 @@ import UIKit
 public class ItemInit {
     public static func initItems() {
         // Create Workers
-        Workers.AddWorker(name: "Chopper", worker: Worker(wantedTicks: 6, moneyEarned: 1, cost: 100, lastTick: 0, count: 0, Image: UIImage()));
-        Workers.AddWorker(name: "Lumberjack", worker: Worker(wantedTicks: 24, moneyEarned: 20, cost: 1000, lastTick: 0, count: 0, Image: UIImage()));
-        Workers.AddWorker(name: "Chainsaw", worker: Worker(wantedTicks: 2, moneyEarned: 5, cost: 3000, lastTick: 0, count: 0, Image: UIImage()));
-        Workers.AddWorker(name: "WoodChipper", worker: Worker(wantedTicks: 50, moneyEarned: 96, cost: 10000, lastTick: 0, count: 0, Image: UIImage()));
-        Workers.AddWorker(name: "WoodMill", worker: Worker(wantedTicks: 100, moneyEarned: 974, cost: 1000000, lastTick: 0, count: 0, Image: UIImage()));
-        Workers.AddWorker(name: "WoodFactory", worker: Worker(wantedTicks: 1000, moneyEarned: 40000, cost: 50000000, lastTick: 0, count: 0, Image: UIImage()));
-        Workers.AddWorker(name: "WoodComplex", worker: Worker(wantedTicks: 20, moneyEarned: 10000, cost: 2147483647, lastTick: 0, count: 0, Image: UIImage()));
+        Workers.AddWorker(name: "Chopper", worker: Worker(wantedTicks: 6, moneyEarned: 1, cost: 100, lastTick: 0, count: 0, Image: UIImage(named: "Chipper")!));
+        Workers.AddWorker(name: "Lumberjack", worker: Worker(wantedTicks: 24, moneyEarned: 20, cost: 1000, lastTick: 0, count: 0, Image: UIImage(named: "LumberJack")!));
+        Workers.AddWorker(name: "Chainsaw", worker: Worker(wantedTicks: 2, moneyEarned: 5, cost: 3000, lastTick: 0, count: 0, Image: UIImage(named: "ChainSaw")!));
+        Workers.AddWorker(name: "WoodChipper", worker: Worker(wantedTicks: 50, moneyEarned: 96, cost: 10000, lastTick: 0, count: 0, Image: UIImage(named:"WoodChipper")!));
+        Workers.AddWorker(name: "WoodMill", worker: Worker(wantedTicks: 100, moneyEarned: 974, cost: 1000000, lastTick: 0, count: 0, Image: UIImage(named: "WoodMill")!));
+        Workers.AddWorker(name: "WoodFactory", worker: Worker(wantedTicks: 1000, moneyEarned: 40000, cost: 50000000, lastTick: 0, count: 0, Image: UIImage(named: "WoodFactory")!));
+        Workers.AddWorker(name: "WoodComplex", worker: Worker(wantedTicks: 20, moneyEarned: 10000, cost: 2147483647, lastTick: 0, count: 0, Image: UIImage(named: "WoodComplex")!));
         // Create Axes
         Axes.addAxe(level: 0, axe: Axe(Name: "Dirt Axe", Damage: 10, Image: UIImage(named: "dirtaxe")!, Level: 0, Cost: 0));
         Axes.addAxe(level: 1, axe: Axe(Name: "Wood Axe", Damage: 50, Image: UIImage(named: "woodaxe")!, Level: 1, Cost: 1));
